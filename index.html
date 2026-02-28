@@ -1621,6 +1621,72 @@ window.addEventListener("DOMContentLoaded", function(){
   }
 
 });
-</script>      
+</script>  
+   </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // 🔥 إزالة أي كود جافاسكريبت ظهر كنص داخل الصفحة
+  document.querySelectorAll("body *").forEach(el => {
+    if (el.innerText && el.innerText.includes("function toggle")) {
+      el.remove();
+    }
+  });
+
+  // 📛 جلب اسم المستخدم من تيليغرام
+  let name = "زائرنا الكريم";
+  if (window.Telegram && Telegram.WebApp) {
+    Telegram.WebApp.ready();
+    let user = Telegram.WebApp.initDataUnsafe.user;
+    if (user && user.first_name) {
+      name = user.first_name;
+    }
+  }
+
+  // 🌙 صندوق الترحيب
+  let welcomeBox = document.createElement("div");
+  welcomeBox.style.background = "linear-gradient(135deg,#e6c35c,#b9932f)";
+  welcomeBox.style.color = "#000";
+  welcomeBox.style.padding = "20px";
+  welcomeBox.style.margin = "20px";
+  welcomeBox.style.borderRadius = "20px";
+  welcomeBox.style.fontSize = "18px";
+  welcomeBox.style.fontWeight = "bold";
+  welcomeBox.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
+  welcomeBox.style.textAlign = "center";
+  welcomeBox.innerHTML =
+    "<div style='font-size:30px;margin-bottom:8px'>🌙</div>" +
+    "أهلاً بك <span style='color:white'>" + name + "</span><br>" +
+    "نسأل الله أن يجعل زيارتك نورًا وأجرًا";
+
+  // 🏷 شريط العنوان
+  let titleBar = document.createElement("div");
+  titleBar.style.background = "linear-gradient(to right,#e6c35c,#b9932f)";
+  titleBar.style.padding = "12px";
+  titleBar.style.fontWeight = "bold";
+  titleBar.style.color = "#000";
+  titleBar.style.textAlign = "center";
+  titleBar.style.margin = "10px 20px";
+  titleBar.style.borderRadius = "12px";
+  titleBar.innerHTML = "وقف نسرين | صدقة جارية";
+
+  // ✨ النص الذهبي الكبير
+  let bigText = document.createElement("div");
+  bigText.style.color = "#e6c35c";
+  bigText.style.fontSize = "26px";
+  bigText.style.margin = "25px";
+  bigText.style.lineHeight = "1.8";
+  bigText.style.textAlign = "center";
+  bigText.innerHTML =
+    "وقف نسرين — صدقة جارية<br>عنها وعن والديها وأهلها وأحبتها";
+
+  // إدراج في أعلى الصفحة
+  document.body.prepend(bigText);
+  document.body.prepend(titleBar);
+  document.body.prepend(welcomeBox);
+
+});
+</script> 
 </body>
 </html>
