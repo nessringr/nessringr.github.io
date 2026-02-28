@@ -1,82 +1,164 @@
-  <!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grnessrinbot</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body{
-  margin:0;
-  font-family:'Amiri',serif;
-  background:#0b0f1a;
-  color:white;
-  text-align:center;
+margin:0;
+font-family:'Amiri',serif;
+background:linear-gradient(180deg,#0a0f1c,#111827);
+color:white;
+text-align:center;
+}
+
+header{
+padding:40px 20px;
+font-size:34px;
+font-weight:bold;
+background:#0a0f1c;
+box-shadow:0 0 50px rgba(212,175,55,0.4);
+}
+
+header span{
+color:#d4af37;
+text-shadow:0 0 20px #d4af37;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:20px;
-  padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+padding:40px;
 }
 
 .card{
-  background:#111827;
-  padding:25px;
-  border-radius:15px;
-  cursor:pointer;
-  transition:0.3s;
+background:#111827;
+padding:25px;
+border-radius:18px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
 }
 
 .card:hover{
-  box-shadow:0 0 35px rgba(212,175,55,0.35);
-  transform:translateY(-4px);
+transform:translateY(-6px);
+box-shadow:0 0 30px rgba(212,175,55,0.5);
 }
 
 .icon{
-  font-size:35px;
-  margin-bottom:10px;
+font-size:35px;
+margin-bottom:10px;
+}
+
+.section{
+display:none;
+padding:30px;
+max-width:900px;
+margin:auto;
+line-height:2;
+text-align:right;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:8px 18px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
 }
 
 .footer{
-  margin-top:40px;
-  padding:20px;
-  border-top:1px solid #333;
-  color:#aaa;
+margin-top:60px;
+padding:30px;
+border-top:1px solid #333;
+color:#ccc;
+}
+
+@media(max-width:600px){
+.grid{grid-template-columns:1fr;}
 }
 </style>
-</head>
 
+<script>
+function openSection(id){
+document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+if(id){document.getElementById(id).style.display='block';window.scrollTo(0,0);}
+}
+</script>
+
+</head>
 <body>
 
-<h1>🌙 Grnessrinbot</h1>
+<header>🌙 <span>Grnessrinbot</span></header>
 
 <div class="grid">
 
-  <div class="card" onclick="window.open('https://sunnah.com/bukhari','_blank')">
-    <div class="icon">📖</div>
-    <div>صحيح البخاري</div>
-  </div>
+<div class="card" onclick="openSection('morning')"><div class="icon">🌅</div>أذكار الصباح</div>
+<div class="card" onclick="openSection('evening')"><div class="icon">🌙</div>أذكار المساء</div>
+<div class="card" onclick="openSection('names')"><div class="icon">🕋</div>أسماء الله الحسنى</div>
+<div class="card" onclick="openSection('tajweed')"><div class="icon">📖</div>أحكام التجويد</div>
 
-  <div class="card" onclick="window.open('https://sunnah.com/muslim','_blank')">
-    <div class="icon">📚</div>
-    <div>صحيح مسلم</div>
-  </div>
+<div class="card" onclick="window.open('https://sunnah.com/bukhari','_blank')"><div class="icon">📚</div>صحيح البخاري</div>
+<div class="card" onclick="window.open('https://sunnah.com/muslim','_blank')"><div class="icon">📘</div>صحيح مسلم</div>
+<div class="card" onclick="window.open('https://waqfeya.net/category.php?cid=23','_blank')"><div class="icon">📗</div>كتب السلف</div>
+<div class="card" onclick="window.open('https://sunnah.com/hisn','_blank')"><div class="icon">🤲</div>الأدعية المأثورة</div>
 
-  <div class="card" onclick="window.open('https://waqfeya.net/category.php?cid=23','_blank')">
-    <div class="icon">📘</div>
-    <div>كتب السلف</div>
-  </div>
-
-  <div class="card" onclick="window.open('https://sunnah.com/hisn','_blank')">
-    <div class="icon">🤲</div>
-    <div>الأدعية المأثورة</div>
-  </div>
+<div class="card" onclick="openSection('blood')"><div class="icon">🩸</div>التبرع بالدم</div>
 
 </div>
 
+<!-- الأقسام -->
+
+<div id="morning" class="section">
+<h2>أذكار الصباح</h2>
+اللّهـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ، خَلَقْتَنـي...
+<br><br>
+حسبيَ اللهُ لا إلهَ إلاّ هُوَ عليهِ توكّلتُ وهو ربُّ العرشِ العظيم.
+<br>
+<button onclick="openSection('')">رجوع</button>
+</div>
+
+<div id="evening" class="section">
+<h2>أذكار المساء</h2>
+أمسينا وأمسى الملك لله...
+<br><br>
+اللهم بك أمسينا وبك أصبحنا...
+<br>
+<button onclick="openSection('')">رجوع</button>
+</div>
+
+<div id="names" class="section">
+<h2>أسماء الله الحسنى</h2>
+الرحمن – الرحيم – الملك – القدوس – السلام – المؤمن – المهيمن – العزيز – الجبار – المتكبر ...
+<br>
+<button onclick="openSection('')">رجوع</button>
+</div>
+
+<div id="tajweed" class="section">
+<h2>أحكام التجويد</h2>
+النون الساكنة والتنوين – الإدغام – الإخفاء – الإظهار – الإقلاب – المدود – القلقلة ...
+<br>
+<button onclick="openSection('')">رجوع</button>
+</div>
+
+<div id="blood" class="section">
+<h2>🩸 التبرع بالدم</h2>
+قال ﷺ: "من أحياها فكأنما أحيا الناس جميعاً".
+<br><br>
+التبرع بالدم صدقة عظيمة وإنقاذ لحياة مسلم.
+<br>
+<button onclick="openSection('')">رجوع</button>
+</div>
+
 <div class="footer">
-وقف نسرين — صدقة جارية عنها وعن والديها وأهلها وأحبتها
+🤍 صدقة جارية عن نسرين ووالديها وأحبتها 🤍
 </div>
 
 </body>
