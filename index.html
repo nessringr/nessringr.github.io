@@ -3,174 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صدقة جارية لنسرين 🤍</title>
+<title>صدقة جارية لنسرين</title>
 
 <style>
 body{
-  margin:0;
-  font-family:'Tahoma',sans-serif;
-  direction:rtl;
-  background:linear-gradient(#0f2027,#203a43,#2c5364);
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
-}
-
-.stars{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity:0.4;
-  z-index:-1;
+margin:0;
+font-family:Tahoma;
+background:linear-gradient(to bottom,#0c1445,#000814);
+color:white;
+text-align:center;
+direction:rtl;
 }
 
 h1{
-  padding:20px;
+margin-top:30px;
+font-size:28px;
 }
 
 .container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:15px;
-  padding:20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin:30px;
 }
 
 .card{
-  background:rgba(255,255,255,0.08);
-  padding:15px;
-  border-radius:18px;
-  backdrop-filter:blur(6px);
-  transition:0.3s;
+background:rgba(255,255,255,0.08);
+border-radius:15px;
+padding:15px;
+width:140px;
+cursor:pointer;
+transition:0.3s;
 }
 
 .card:hover{
-  transform:scale(1.05);
-  background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.2);
 }
 
 .icon{
-  font-size:22px;
-  margin-bottom:5px;
+font-size:30px;
+margin-bottom:10px;
 }
 
-button{
-  padding:6px 10px;
-  border:none;
-  border-radius:10px;
-  background:#ffffff30;
-  color:white;
-  margin-top:5px;
+.section{
+display:none;
+margin:20px;
+padding:15px;
+background:rgba(255,255,255,0.05);
+border-radius:15px;
 }
 
 audio{
-  width:100%;
-  margin-top:5px;
+width:90%;
+margin:10px 0;
 }
-
-select{
-  width:100%;
-  padding:5px;
-  border-radius:8px;
-  margin-top:5px;
-}
-
-#count{
-  font-size:18px;
+footer{
+margin:30px;
+font-size:14px;
+opacity:0.8;
 }
 </style>
+
+<script>
+function toggle(id){
+var x=document.getElementById(id);
+if(x.style.display==="block"){
+x.style.display="none";
+}else{
+x.style.display="block";
+}
+}
+</script>
+
 </head>
-
 <body>
-<div class="stars"></div>
 
-<h1>🌙 صدقة جارية لنسرين 🤍<br>
-ادعوا لها ولوالديها بالرحمة والمغفرة</h1>
+<h1>🌙 صدقة جارية لنسرين ووالديها 🤍</h1>
 
 <div class="container">
 
-<div class="card">
-<div class="icon">📿</div>
-<h3>التسبيح</h3>
-<p id="count">0</p>
-<button onclick="tasbih()">تسبيح</button>
-<button onclick="reset()">تصفير</button>
+<div class="card" onclick="toggle('quran')">
+<div class="icon">🎧🌙</div>
+تلاوات المنشاوي
 </div>
 
-<div class="card">
-<div class="icon">🎧</div>
-<h3>تلاوات المنشاوي</h3>
-<select onchange="changeSurah(this.value)">
-<option value="001">الفاتحة</option>
-<option value="036">يس</option>
-<option value="055">الرحمن</option>
-<option value="067">الملك</option>
-<option value="112">الإخلاص</option>
-</select>
-<audio id="player" controls>
-<source src="https://download.quranicaudio.com/quran/muhammad_siddeeq_al_minshawi/001.mp3" type="audio/mpeg">
+<div class="card" onclick="toggle('morning')">
+<div class="icon">☀️🌙</div>
+أذكار الصباح
+</div>
+
+<div class="card" onclick="toggle('evening')">
+<div class="icon">🌆🌙</div>
+أذكار المساء
+</div>
+
+<div class="card" onclick="toggle('sleep')">
+<div class="icon">🌙💤</div>
+أذكار النوم
+</div>
+
+<div class="card" onclick="toggle('exit')">
+<div class="icon">🚪🌙</div>
+أذكار الخروج
+</div>
+
+<div class="card" onclick="toggle('travel')">
+<div class="icon">✈️🌙</div>
+أذكار السفر
+</div>
+
+<div class="card" onclick="toggle('hadith')">
+<div class="icon">📖🌙</div>
+أحاديث
+</div>
+
+</div>
+
+<div id="quran" class="section">
+<h2>تلاوة سورة الرحمن - المنشاوي</h2>
+<audio controls>
+<source src="https://download.quranicaudio.com/quran/muhammad_siddeeq_al_minshawee/055.mp3" type="audio/mpeg">
 </audio>
 </div>
 
-<div class="card">
-<div class="icon">🌅</div>
-<h3>أذكار الصباح</h3>
-<p>اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور</p>
+<div id="morning" class="section">
+<h2>أذكار الصباح</h2>
+<p>اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور.</p>
 </div>
 
-<div class="card">
-<div class="icon">🌙</div>
-<h3>أذكار المساء</h3>
-<p>اللهم بك أمسينا وبك أصبحنا وبك نحيا وبك نموت وإليك المصير</p>
+<div id="evening" class="section">
+<h2>أذكار المساء</h2>
+<p>اللهم بك أمسينا وبك أصبحنا وبك نحيا وبك نموت وإليك المصير.</p>
 </div>
 
-<div class="card">
-<div class="icon">😴</div>
-<h3>أذكار النوم</h3>
-<p>باسمك اللهم أموت وأحيا</p>
+<div id="sleep" class="section">
+<h2>أذكار النوم</h2>
+<p>باسمك اللهم أموت وأحيا.</p>
 </div>
 
-<div class="card">
-<div class="icon">🤲</div>
-<h3>دعاء للزائر</h3>
-<p>اللهم اجعل هذا الموقع سبباً في هدايته وراحته 🤍</p>
+<div id="exit" class="section">
+<h2>أذكار الخروج من المنزل</h2>
+<p>بسم الله توكلت على الله ولا حول ولا قوة إلا بالله.</p>
 </div>
 
-<div class="card">
-<div class="icon">📖</div>
-<h3>حديث عن الصوم</h3>
-<p>قال ﷺ: "من صام رمضان إيماناً واحتساباً غفر له ما تقدم من ذنبه"</p>
+<div id="travel" class="section">
+<h2>أذكار السفر</h2>
+<p>سبحان الذي سخر لنا هذا وما كنا له مقرنين وإنا إلى ربنا لمنقلبون.</p>
 </div>
 
-<div class="card">
-<div class="icon">🌌</div>
-<h3>حديث عن قيام الليل</h3>
-<p>قال ﷺ: "أفضل الصلاة بعد الفريضة صلاة الليل"</p>
+<div id="hadith" class="section">
+<h2>حديث عن الصيام</h2>
+<p>قال رسول الله ﷺ: من صام رمضان إيماناً واحتساباً غفر له ما تقدم من ذنبه.</p>
 </div>
 
-<div class="card">
-<div class="icon">🕊</div>
-<h3>اسم من أسماء الله</h3>
-<p>الرحمن: واسع الرحمة التي وسعت كل شيء</p>
-</div>
-
-</div>
-
-<script>
-let count=0;
-function tasbih(){
-  count++;
-  document.getElementById("count").innerText=count;
-}
-function reset(){
-  count=0;
-  document.getElementById("count").innerText=0;
-}
-function changeSurah(num){
-  document.getElementById("player").src=
-  "https://download.quranicaudio.com/quran/muhammad_siddeeq_al_minshawi/"+num+".mp3";
-}
-</script>
+<footer>
+دعوة من القلب 🤍  
+اللهم اغفر لنسرين ولوالديها وارحمهم واجعل هذا العمل صدقة جارية.
+</footer>
 
 </body>
 </html>
