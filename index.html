@@ -533,15 +533,16 @@ star.style.top=Math.random()*window.innerHeight+"px";
 document.body.appendChild(star);
 setTimeout(()=>{star.remove();},1000);
 </script>
-  <style>
-<div class="icon-box" onclick="showSalafBooks()">
-  <div class="icon-img">📚</div>
-  <div class="icon-title">كتب السلف</div>
+  <!-- 📚 كتب السلف -->
+<div class="card" onclick="showSalafBooks()">
+  <div class="icon">📚</div>
+  <div>كتب السلف</div>
 </div>
 
-<div class="icon-box" onclick="showPropheticDua()">
-  <div class="icon-img">🤲</div>
-  <div class="icon-title">أدعية مأثورة</div>
+<!-- 🤲 الأدعية المأثورة -->
+<div class="card" onclick="showPropheticDua()">
+  <div class="icon">🤲</div>
+  <div>الأدعية المأثورة</div>
 </div>
 /* ✨ توهج القسم */
 .library-box{
@@ -797,22 +798,44 @@ let content = `
 document.getElementById("popupBody").innerHTML = content;
 document.getElementById("popup").style.display = "block";
 }
+function showSalafBooks(){
+explodeStars();
+
+var content = "<h3 style='color:gold;text-align:center;'>📚 كتب ابن تيمية</h3>";
+content += "<div style='text-align:right;'>";
+
+content += "<h4>1️⃣ العقيدة الواسطية</h4>";
+content += "<p>شرح عقيدة أهل السنة والجماعة.</p>";
+
+content += "<h4>2️⃣ مجموع الفتاوى</h4>";
+content += "<p>موسوعة عظيمة في الفقه والعقيدة.</p>";
+
+content += "<h4>3️⃣ اقتضاء الصراط المستقيم</h4>";
+content += "<p>في التمسك بالسنة ومخالفة أهل البدع.</p>";
+
+content += "</div>";
+
+document.getElementById("megaBody").innerHTML = content;
+document.getElementById("megaPopup").style.display = "block";
+}
 
 
 function showPropheticDua(){
-let content = `
-<h2 style="color:gold;text-align:center;">🤲 أدعية مأثورة عن النبي ﷺ</h2>
-<div style="text-align:right;">
-<p><b>اللهم آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار</b></p>
-<p><b>يا مقلب القلوب ثبت قلبي على دينك</b></p>
-<p><b>اللهم إني أعوذ بك من الهم والحزن</b></p>
-<p><b>اللهم إني أسألك الهدى والتقى والعفاف والغنى</b></p>
-<p><b>اللهم اغفر لي خطيئتي وجهلي وإسرافي في أمري</b></p>
-</div>
-`;
+explodeStars();
 
-document.getElementById("popupBody").innerHTML = content;
-document.getElementById("popup").style.display = "block";
+var content = "<h3 style='color:gold;text-align:center;'>🤲 الأدعية المأثورة عن النبي ﷺ</h3>";
+content += "<div style='text-align:right;'>";
+
+content += "<p><b>اللهم آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار</b></p>";
+content += "<p><b>يا مقلب القلوب ثبت قلبي على دينك</b></p>";
+content += "<p><b>اللهم إني أعوذ بك من الهم والحزن والعجز والكسل</b></p>";
+content += "<p><b>اللهم إني أسألك الهدى والتقى والعفاف والغنى</b></p>";
+content += "<p><b>اللهم اغفر لي خطيئتي وجهلي وإسرافي في أمري</b></p>";
+
+content += "</div>";
+
+document.getElementById("megaBody").innerHTML = content;
+document.getElementById("megaPopup").style.display = "block";
 }
 
   </script>
