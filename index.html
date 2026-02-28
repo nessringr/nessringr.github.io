@@ -1321,12 +1321,7 @@ color:#ddd;
 display:block;
 }
 
-/* روابط الكتب */
-.card-content a{
-color:gold;
-text-decoration:none;
-display:block;
-margin:8px 0;
+
 }
 
 /* المسبحة */
@@ -1417,16 +1412,7 @@ border-top:1px solid gold;
 </div>
 </div>
 
-<!-- الكتب -->
-<div class="card" onclick="toggle(this)">
-<div class="card-title"><i class="fa-solid fa-book"></i> كتب السلف – المكتبة الوقفية</div>
-<div class="card-content">
-<a href="https://waqfeya.net/" target="_blank">الدخول إلى المكتبة الوقفية</a>
-<a href="https://waqfeya.net/book.php?bid=1390" target="_blank">صحيح البخاري</a>
-<a href="https://waqfeya.net/book.php?bid=1391" target="_blank">صحيح مسلم</a>
-<a href="https://waqfeya.net/book.php?bid=1393" target="_blank">سنن أبي داود</a>
-</div>
-</div>
+
 
 <!-- أدعية -->
 <div class="card" onclick="toggle(this)">
@@ -1523,24 +1509,6 @@ document.body.innerHTML = basmala.replace(
 "اللهم اجعل هذا الموقع نورًا وسكينةً لقلب زائره<br>( صدقة جارية عن نسرين ووالديها وأحبتها، ادعو الله أن يرحمنا بهذا العمل ويرزقنا رضاه في الدنيا والآخرة )"
 );
 
-// ================== 4) فصل وتنظيم الكتب ==================
-let booksSection = document.createElement("div");
-booksSection.style.margin="25px";
-booksSection.style.padding="15px";
-booksSection.style.background="rgba(255,255,255,0.08)";
-booksSection.style.borderRadius="15px";
-
-booksSection.innerHTML = `
-<h2 style="color:gold;">📚 كتب السلف - المكتبة الوقفية</h2>
-<a href="https://waqfeya.net/" target="_blank" style="color:#ffd700;display:block;margin:8px;">الدخول إلى المكتبة الوقفية</a>
-
-<h2 style="color:gold;margin-top:20px;">📖 كتب الحديث الشريف</h2>
-<a href="https://waqfeya.net/book.php?bid=11810" target="_blank" style="color:#ffd700;display:block;margin:8px;">صحيح البخاري PDF</a>
-<a href="https://waqfeya.net/book.php?bid=11811" target="_blank" style="color:#ffd700;display:block;margin:8px;">صحيح مسلم PDF</a>
-<a href="https://waqfeya.net/book.php?bid=11449" target="_blank" style="color:#ffd700;display:block;margin:8px;">سنن ابن ماجه PDF</a>
-`;
-document.body.insertBefore(booksSection, document.body.children[3]);
-
 </script>
     <script>
 // ================== حذف خانة اكتب اسمك ==================
@@ -1580,13 +1548,8 @@ sadaqa.innerHTML =
 "( صدقة جارية لنسرين ووالديها وأحبتها، جعله الله نورًا لنا ولكم وذخرًا وصدقةً تنفعنا في قبورنا )";
 document.body.appendChild(sadaqa);
 
-// ================== تنظيم الكتب بدون تكرار ==================
-let booksContainer = document.querySelector(".card");
-if(booksContainer){
 
-booksContainer.innerHTML = `
-<h2 style="color:gold;">📚 كتب السلف - المكتبة الوقفية</h2>
-<a href="https://waqfeya.net/" target="_blank" style="color:#ffd700;display:block;margin:8px;">الدخول إلى المكتبة الوقفية</a>
+
 
 <hr style="margin:20px 0;border-color:gold;">
 
