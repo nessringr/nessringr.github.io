@@ -1254,5 +1254,247 @@ if(container){
 }
 });
 </script>
+<!-- ====== NESSRIN ROYAL ISLAMIC VERSION ====== -->
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+background:radial-gradient(circle at top,#0b1220 0%,#000 80%);
+color:white;
+font-family:'Amiri',serif;
+margin:0;
+overflow-x:hidden;
+}
+
+/* الهلال */
+.moon{
+text-align:center;
+font-size:55px;
+color:gold;
+text-shadow:0 0 25px gold;
+margin-top:30px;
+animation:glow 3s infinite alternate;
+}
+@keyframes glow{
+from{opacity:0.7}
+to{opacity:1}
+}
+
+.container{
+max-width:900px;
+margin:30px auto;
+padding:15px;
+}
+
+/* الأيقونات */
+.card{
+background:linear-gradient(145deg,#111,#000);
+border:2px solid gold;
+border-radius:20px;
+padding:18px;
+margin:15px 0;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 20px rgba(255,215,0,0.4);
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 35px gold;
+}
+
+.card-title{
+font-size:20px;
+color:gold;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.card-content{
+display:none;
+margin-top:15px;
+line-height:2;
+color:#ddd;
+}
+
+.card.active .card-content{
+display:block;
+}
+
+/* روابط الكتب */
+.card-content a{
+color:gold;
+text-decoration:none;
+display:block;
+margin:8px 0;
+}
+
+/* المسبحة */
+.counter-box{
+text-align:center;
+margin-top:10px;
+}
+
+.counter{
+font-size:28px;
+color:gold;
+margin:10px 0;
+}
+
+.btn{
+background:gold;
+color:black;
+border:none;
+padding:8px 18px;
+border-radius:12px;
+cursor:pointer;
+margin:5px;
+}
+
+/* الصدقة */
+.footer{
+text-align:center;
+margin-top:40px;
+padding:20px;
+color:gold;
+border-top:1px solid gold;
+}
+</style>
+
+<div class="moon">🌙</div>
+
+<div class="container">
+
+<!-- أذكار -->
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-sun"></i> أذكار الصباح</div>
+<div class="card-content">
+أصبحنا وأصبح الملك لله رب العالمين...<br>
+اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-moon"></i> أذكار المساء</div>
+<div class="card-content">
+أمسينا وأمسى الملك لله رب العالمين...<br>
+اللهم إني أسألك خير هذه الليلة وخير ما بعدها.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-door-open"></i> أذكار الخروج</div>
+<div class="card-content">
+بسم الله توكلت على الله ولا حول ولا قوة إلا بالله.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-door-closed"></i> أذكار الدخول</div>
+<div class="card-content">
+بسم الله ولجنا وبسم الله خرجنا وعلى ربنا توكلنا.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-plane"></i> أذكار السفر</div>
+<div class="card-content">
+سبحان الذي سخر لنا هذا وما كنا له مقرنين.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-star"></i> فضل قيام الليل</div>
+<div class="card-content">
+قيام الليل شرف المؤمن وقربة إلى الله وسبب لمغفرة الذنوب.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-book-quran"></i> فضل تلاوة القرآن</div>
+<div class="card-content">
+قال ﷺ: خيركم من تعلم القرآن وعلمه.
+</div>
+</div>
+
+<!-- الكتب -->
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-book"></i> كتب السلف – المكتبة الوقفية</div>
+<div class="card-content">
+<a href="https://waqfeya.net/" target="_blank">الدخول إلى المكتبة الوقفية</a>
+<a href="https://waqfeya.net/book.php?bid=1390" target="_blank">صحيح البخاري</a>
+<a href="https://waqfeya.net/book.php?bid=1391" target="_blank">صحيح مسلم</a>
+<a href="https://waqfeya.net/book.php?bid=1393" target="_blank">سنن أبي داود</a>
+</div>
+</div>
+
+<!-- أدعية -->
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-hands-praying"></i> أدعية مأثورة</div>
+<div class="card-content">
+اللهم اغفر لنا وارحمنا واهدنا وعافنا وارزقنا.<br>
+ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.
+</div>
+</div>
+
+<!-- المسبحة -->
+<div class="card" onclick="toggle(this)">
+<div class="card-title"><i class="fa-solid fa-circle-dot"></i> المسبحة الإلكترونية</div>
+<div class="card-content counter-box">
+
+<div>
+سبحان الله (100)
+<div class="counter" id="c1">0</div>
+<button class="btn" onclick="inc(event,'c1',100)">تسبيح</button>
+</div>
+
+<div>
+الحمد لله (100)
+<div class="counter" id="c2">0</div>
+<button class="btn" onclick="inc(event,'c2',100)">حمد</button>
+</div>
+
+<div>
+الله أكبر (100)
+<div class="counter" id="c3">0</div>
+<button class="btn" onclick="inc(event,'c3',100)">تكبير</button>
+</div>
+
+<div>
+الصلاة على النبي (100)
+<div class="counter" id="c4">0</div>
+<button class="btn" onclick="inc(event,'c4',100)">صلاة</button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+هذا العمل صدقة جارية عن نسرين وأهلها وأحبتها 🤍  
+ادعوا لنا بالرحمة والمغفرة
+</div>
+
+<script>
+function toggle(el){
+el.classList.toggle("active");
+}
+
+function inc(e,id,max){
+e.stopPropagation();
+let el=document.getElementById(id);
+let val=parseInt(el.innerText);
+if(val<max){
+val++;
+el.innerText=val;
+}
+}
+</script>
+
+<!-- ===== END ===== -->
 </body>
 </html>
