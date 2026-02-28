@@ -622,317 +622,110 @@ background-size:40px 40px;
 opacity:0.05;
 pointer-events:none;
 }
-
 </style>
-
 <script>
+  <script>
 
-/* ⭐ زيادة عدد النجوم وتأثير أجمل */
-function createStars(){
-for(let i=0;i<40;i++){
-let star=document.createElement("div");
-star.className="star";
-star.style.left=Math.random()*window.innerWidth+"px";
-star.style.top=Math.random()*window.innerHeight+"px";
-document.body.appendChild(star);
-
-setTimeout(()=>{star.remove();},1200);
-}
-}
-
-</script>
-  <!-- 👑 الأيقونات الجانبية الأسطورية -->
-
-<div class="side-icons">
-
-<div class="side-btn" onclick="showAllahNames()">
-✨
-<span>أسماء الله</span>
-</div>
-
-<div class="side-btn" onclick="showTajweed()">
-📖
-<span>التجويد</span>
-</div>
-
-</div>
-
-<!-- Popup -->
-<div id="megaPopup" class="mega-popup">
-<div class="mega-content">
-<span class="close-btn" onclick="closeMega()">✖</span>
-<div id="megaBody"></div>
-</div>
-</div>
-
-<style>
-
-/* 🌙 الأيقونات الجانبية */
-.side-icons{
-position:fixed;
-top:40%;
-left:10px;
-display:flex;
-flex-direction:column;
-gap:15px;
-z-index:999;
-}
-
-.side-btn{
-background:linear-gradient(145deg,#014,#026);
-color:white;
-padding:15px;
-border-radius:50%;
-width:70px;
-height:70px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 0 20px gold;
-transition:0.3s;
-position:relative;
-}
-
-.side-btn span{
-font-size:9px;
-margin-top:5px;
-text-align:center;
-}
-
-.side-btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 35px gold;
-}
-
-/* ⭐ النجوم */
-.star{
-position:fixed;
-width:8px;
-height:8px;
-background:gold;
-border-radius:50%;
-animation:fall 1s forwards;
-}
-
-@keyframes fall{
-to{transform:translateY(200px);opacity:0;}
-}
-
-/* 🪟 النافذة */
-.mega-popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-z-index:1000;
-}
-
-.mega-content{
-background:#012;
-margin:5% auto;
-padding:25px;
-width:95%;
-max-width:600px;
-border-radius:20px;
-color:white;
-max-height:80%;
-overflow:auto;
-box-shadow:0 0 40px gold;
-}
-
-.close-btn{
-float:right;
-cursor:pointer;
-color:red;
-font-size:18px;
-}
-
-.mega-content h3{
-color:gold;
-text-align:center;
-}
-
-.mega-content ul{
-padding-right:20px;
-}
-
-</style>
-
-<script>
-
+/* ⭐ تأثير النجوم */
 function explodeStars(){
-for(let i=0;i<30;i++){
+for(let i=0;i<25;i++){
 let s=document.createElement("div");
-s.className="star";
+s.style.position="fixed";
+s.style.width="8px";
+s.style.height="8px";
+s.style.background="gold";
+s.style.borderRadius="50%";
 s.style.left=Math.random()*window.innerWidth+"px";
 s.style.top=Math.random()*window.innerHeight+"px";
+s.style.zIndex="9999";
+s.style.opacity="1";
+s.style.transition="all 1s ease-out";
 document.body.appendChild(s);
-setTimeout(()=>s.remove(),1000);
+
+setTimeout(function(){
+s.style.transform="translateY(200px)";
+s.style.opacity="0";
+},50);
+
+setTimeout(function(){
+s.remove();
+},1000);
 }
 }
 
-/* 🌟 أسماء الله مع شرح ودعاء */
-
+/* 🌟 أسماء الله الحسنى الكاملة */
 function showAllahNames(){
 explodeStars();
 
-let content=`
-<h3>🌟 أسماء الله الحسنى (99 اسماً)</h3>
+var content = "<h3 style='color:gold;text-align:center;'>🌟 أسماء الله الحسنى</h3>";
+content += "<div style='max-height:400px;overflow:auto;text-align:right;'>";
 
-<p><b>الله:</b> الاسم الجامع لكل صفات الكمال.</p>
-<p><b>الرحمن:</b> واسع الرحمة بجميع الخلق.</p>
-<p><b>الرحيم:</b> الرحيم بالمؤمنين.</p>
-<p><b>الملك:</b> المتصرف في الكون بلا منازع.</p>
-<p><b>القدوس:</b> المنزه عن كل نقص.</p>
-<p><b>السلام:</b> السالم من كل عيب.</p>
-<p><b>المؤمن:</b> المصدق لعباده.</p>
-<p><b>المهيمن:</b> الرقيب على كل شيء.</p>
-<p><b>العزيز:</b> الذي لا يُغلب.</p>
-<p><b>الجبار:</b> الذي يجبر كسر عباده.</p>
-<p><b>المتكبر:</b> المتعالي عن صفات الخلق.</p>
-<p><b>الخالق:</b> موجد كل شيء.</p>
-<p><b>البارئ:</b> خالق الخلق بقدر.</p>
-<p><b>المصور:</b> الذي أعطى كل شيء صورته.</p>
-<p><b>الغفار:</b> كثير المغفرة.</p>
-<p><b>القهار:</b> الغالب فوق عباده.</p>
-<p><b>الوهاب:</b> كثير العطاء.</p>
-<p><b>الرزاق:</b> المتكفل بالأرزاق.</p>
-<p><b>الفتاح:</b> الذي يفتح أبواب الخير.</p>
-<p><b>العليم:</b> المحيط بكل شيء علماً.</p>
-<p><b>القابض:</b> الذي يقبض الأرزاق.</p>
-<p><b>الباسط:</b> الذي يبسط الرزق.</p>
-<p><b>الخافض:</b> يخفض الظالمين.</p>
-<p><b>الرافع:</b> يرفع المؤمنين.</p>
-<p><b>المعز:</b> يعطي العزة لمن يشاء.</p>
-<p><b>المذل:</b> يذل من يشاء.</p>
-<p><b>السميع:</b> الذي يسمع كل شيء.</p>
-<p><b>البصير:</b> الذي يرى كل شيء.</p>
-<p><b>الحكم:</b> الحاكم العادل.</p>
-<p><b>العدل:</b> الذي لا يظلم.</p>
-<p><b>اللطيف:</b> البر بعباده.</p>
-<p><b>الخبير:</b> العليم بخفايا الأمور.</p>
-<p><b>الحليم:</b> الذي لا يعجل بالعقوبة.</p>
-<p><b>العظيم:</b> العظيم في ذاته وصفاته.</p>
-<p><b>الغفور:</b> كثير المغفرة.</p>
-<p><b>الشكور:</b> الذي يجزي على القليل بالكثير.</p>
-<p><b>العلي:</b> العالي فوق خلقه.</p>
-<p><b>الكبير:</b> المتكبر في ذاته.</p>
-<p><b>الحفيظ:</b> الحافظ لعباده.</p>
-<p><b>المقيت:</b> المعطي القوت.</p>
-<p><b>الحسيب:</b> الكافي لعباده.</p>
-<p><b>الجليل:</b> صاحب العظمة.</p>
-<p><b>الكريم:</b> كثير الخير.</p>
-<p><b>الرقيب:</b> المراقب لكل شيء.</p>
-<p><b>المجيب:</b> الذي يجيب الدعاء.</p>
-<p><b>الواسع:</b> واسع الرحمة والعلم.</p>
-<p><b>الحكيم:</b> المتقن لكل شيء.</p>
-<p><b>الودود:</b> المحب لعباده.</p>
-<p><b>المجيد:</b> صاحب المجد.</p>
-<p><b>الباعث:</b> باعث الخلق يوم القيامة.</p>
-<p><b>الشهيد:</b> الحاضر الذي لا يغيب.</p>
-<p><b>الحق:</b> الثابت الذي لا يتغير.</p>
-<p><b>الوكيل:</b> الكفيل بأمور عباده.</p>
-<p><b>القوي:</b> شديد القوة.</p>
-<p><b>المتين:</b> الذي لا يُغلب.</p>
-<p><b>الولي:</b> الناصر.</p>
-<p><b>الحميد:</b> المستحق للحمد.</p>
-<p><b>المحصي:</b> الذي أحصى كل شيء.</p>
-<p><b>المبدئ:</b> الذي بدأ الخلق.</p>
-<p><b>المعيد:</b> الذي يعيد الخلق.</p>
-<p><b>المحيي:</b> واهب الحياة.</p>
-<p><b>المميت:</b> الذي يميت الخلق.</p>
-<p><b>الحي:</b> الدائم الحياة.</p>
-<p><b>القيوم:</b> القائم بنفسه.</p>
-<p><b>الواجد:</b> الغني الذي لا يفتقر.</p>
-<p><b>الماجد:</b> صاحب الشرف.</p>
-<p><b>الواحد:</b> المنفرد.</p>
-<p><b>الأحد:</b> الذي لا شريك له.</p>
-<p><b>الصمد:</b> المقصود في الحاجات.</p>
-<p><b>القادر:</b> الذي يقدر على كل شيء.</p>
-<p><b>المقتدر:</b> التام القدرة.</p>
-<p><b>المقدم:</b> الذي يقدم من يشاء.</p>
-<p><b>المؤخر:</b> الذي يؤخر من يشاء.</p>
-<p><b>الأول:</b> الذي ليس قبله شيء.</p>
-<p><b>الآخر:</b> الذي ليس بعده شيء.</p>
-<p><b>الظاهر:</b> العالي فوق كل شيء.</p>
-<p><b>الباطن:</b> المطلع على خفايا الأمور.</p>
-<p><b>الوالي:</b> المتصرف في الأمور.</p>
-<p><b>المتعالي:</b> المنزه عن صفات الخلق.</p>
-<p><b>البر:</b> العطوف الرحيم.</p>
-<p><b>التواب:</b> كثير التوبة.</p>
-<p><b>المنتقم:</b> المنتقم من الظالمين.</p>
-<p><b>العفو:</b> الذي يمحو الذنوب.</p>
-<p><b>الرؤوف:</b> شديد الرحمة.</p>
-<p><b>مالك الملك:</b> صاحب الملك كله.</p>
-<p><b>ذو الجلال والإكرام:</b> صاحب العظمة والكرم.</p>
-<p><b>المقسط:</b> العادل.</p>
-<p><b>الجامع:</b> جامع الناس ليوم القيامة.</p>
-<p><b>الغني:</b> الذي لا يحتاج.</p>
-<p><b>المغني:</b> الذي يغني عباده.</p>
-<p><b>المانع:</b> الذي يمنع بحكمة.</p>
-<p><b>الضار:</b> الذي يقدر الضر بحكمة.</p>
-<p><b>النافع:</b> الذي ينفع عباده.</p>
-<p><b>النور:</b> نور السماوات والأرض.</p>
-<p><b>الهادي:</b> الذي يهدي من يشاء.</p>
-<p><b>البديع:</b> مبدع السماوات والأرض.</p>
-<p><b>الباقي:</b> الدائم الذي لا يفنى.</p>
-<p><b>الوارث:</b> الباقي بعد فناء الخلق.</p>
-<p><b>الرشيد:</b> المرشد للحق.</p>
-<p><b>الصبور:</b> الذي لا يعجل بالعقوبة.</p>
+var names = [
+"الله","الرحمن","الرحيم","الملك","القدوس","السلام","المؤمن","المهيمن","العزيز","الجبار","المتكبر",
+"الخالق","البارئ","المصور","الغفار","القهار","الوهاب","الرزاق","الفتاح","العليم",
+"القابض","الباسط","الخافض","الرافع","المعز","المذل","السميع","البصير","الحكم","العدل",
+"اللطيف","الخبير","الحليم","العظيم","الغفور","الشكور","العلي","الكبير","الحفيظ","المقيت",
+"الحسيب","الجليل","الكريم","الرقيب","المجيب","الواسع","الحكيم","الودود","المجيد","الباعث",
+"الشهيد","الحق","الوكيل","القوي","المتين","الولي","الحميد","المحصي","المبدئ","المعيد",
+"المحيي","المميت","الحي","القيوم","الواجد","الماجد","الواحد","الأحد","الصمد","القادر",
+"المقتدر","المقدم","المؤخر","الأول","الآخر","الظاهر","الباطن","الوالي","المتعالي","البر",
+"التواب","المنتقم","العفو","الرؤوف","مالك الملك","ذو الجلال والإكرام","المقسط","الجامع","الغني","المغني",
+"المانع","الضار","النافع","النور","الهادي","البديع","الباقي","الوارث","الرشيد","الصبور"
+];
 
-<hr>
-<h4>🤲 أدعية جامعة بأسماء الله الحسنى:</h4>
-<p>اللهم يا رحمن يا رحيم ارحمنا برحمتك.</p>
-<p>يا غفور يا تواب اغفر لنا ذنوبنا.</p>
-<p>يا رزاق ارزقنا رزقاً حلالاً طيباً.</p>
-<p>يا حي يا قيوم برحمتك نستغيث.</p>
-`;
+for(var i=0;i<names.length;i++){
+content += "<p><b>"+names[i]+"</b></p>";
+}
 
+content += "<hr>";
+content += "<p style='color:#ccc;'>🤲 دعاء: اللهم إنا نسألك بأسمائك الحسنى وصفاتك العلى أن تغفر لنا وترحمنا وتهدينا.</p>";
+content += "</div>";
+
+document.getElementById("megaBody").innerHTML = content;
+document.getElementById("megaPopup").style.display = "block";
+}
+
+/* 📖 أحكام التجويد المعمقة */
 function showTajweed(){
 explodeStars();
 
-let content=`
-<h3>📖 أحكام التجويد بالتفصيل</h3>
+var content = "<h3 style='color:gold;text-align:center;'>📖 أحكام التجويد</h3>";
+content += "<div style='max-height:400px;overflow:auto;text-align:right;'>";
 
-<h4>1️⃣ أحكام النون الساكنة والتنوين:</h4>
-<ul>
-<li><b>الإظهار:</b> إخراج النون من غير غنة (ء هـ ع ح غ خ).</li>
-<li><b>الإدغام:</b> إدخال النون في الحرف الذي بعدها (يرملون).</li>
-<li><b>الإخفاء:</b> إخفاء النون مع غنة (15 حرفاً).</li>
-<li><b>الإقلاب:</b> قلب النون ميماً عند الباء.</li>
-</ul>
+content += "<h4>1️⃣ أحكام النون الساكنة والتنوين</h4>";
+content += "<ul>";
+content += "<li><b>الإظهار:</b> إخراج النون بوضوح دون غنة (ء هـ ع ح غ خ)</li>";
+content += "<li><b>الإدغام:</b> إدخال النون في الحرف بعدها (يرملون)</li>";
+content += "<li><b>الإخفاء:</b> إخفاء النون مع غنة عند 15 حرفاً</li>";
+content += "<li><b>الإقلاب:</b> قلب النون ميماً عند الباء</li>";
+content += "</ul>";
 
-<h4>2️⃣ أحكام الميم الساكنة:</h4>
-<ul>
-<li>إظهار شفوي</li>
-<li>إدغام شفوي</li>
-<li>إخفاء شفوي</li>
-</ul>
+content += "<h4>2️⃣ أحكام الميم الساكنة</h4>";
+content += "<ul>";
+content += "<li>إظهار شفوي</li>";
+content += "<li>إدغام شفوي</li>";
+content += "<li>إخفاء شفوي</li>";
+content += "</ul>";
 
-<h4>3️⃣ المدود:</h4>
-<ul>
-<li>المد الطبيعي (حركتان)</li>
-<li>المد المتصل</li>
-<li>المد المنفصل</li>
-<li>مد العارض للسكون</li>
-<li>مد البدل</li>
-</ul>
+content += "<h4>3️⃣ المدود</h4>";
+content += "<ul>";
+content += "<li>المد الطبيعي (حركتان)</li>";
+content += "<li>المد المتصل</li>";
+content += "<li>المد المنفصل</li>";
+content += "<li>مد العارض للسكون</li>";
+content += "<li>مد البدل</li>";
+content += "</ul>";
 
-<h4>4️⃣ القلقلة:</h4>
-<p>حروفها: قطب جد — وترتد عند السكون.</p>
+content += "<h4>4️⃣ القلقلة</h4>";
+content += "<p>حروفها: قطب جد — وتكون عند السكون.</p>";
 
-<h4>5️⃣ التفخيم والترقيق:</h4>
-<p>حروف التفخيم: خص ضغط قظ.</p>
-`;
+content += "<h4>5️⃣ التفخيم والترقيق</h4>";
+content += "<p>حروف التفخيم: خص ضغط قظ</p>";
 
-document.getElementById("megaBody").innerHTML=content;
-document.getElementById("megaPopup").style.display="block";
+content += "</div>";
+
+document.getElementById("megaBody").innerHTML = content;
+document.getElementById("megaPopup").style.display = "block";
 }
 
 </script>
