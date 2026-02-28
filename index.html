@@ -925,5 +925,271 @@ document.getElementById("welcomeBox").innerHTML=
 </script>
 
 <!-- ===== END NESSRIN IMPERIAL FINAL ===== -->
+<!-- ===== NESSRIN ULTIMATE ISLAMIC ROYAL FINAL ===== -->
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background:radial-gradient(circle at top,#0b1220 0%,#000 75%);
+color:white;
+font-family:'Amiri',serif;
+overflow-x:hidden;
+}
+
+/* الحاوية */
+.clean-container{
+max-width:950px;
+margin:40px auto;
+padding:20px;
+}
+
+/* بسم الله */
+.basmala{
+text-align:center;
+font-size:42px;
+color:gold;
+text-shadow:0 0 30px gold;
+margin-bottom:10px;
+}
+
+/* الصدقة */
+.sadaqa{
+text-align:center;
+color:gold;
+font-size:20px;
+margin-bottom:30px;
+}
+
+/* ترحيب */
+.welcome{
+text-align:center;
+margin-bottom:40px;
+font-size:18px;
+color:#ddd;
+}
+
+/* بطاقة عامة */
+.card{
+background:linear-gradient(145deg,#111,#000);
+border:2px solid gold;
+border-radius:25px;
+padding:25px;
+margin-bottom:25px;
+box-shadow:0 0 25px rgba(255,215,0,0.4);
+cursor:pointer;
+transition:0.4s;
+}
+
+.card:hover{
+box-shadow:0 0 45px gold;
+transform:translateY(-5px);
+}
+
+.card-title{
+text-align:center;
+color:gold;
+font-size:22px;
+}
+
+.card-content{
+display:none;
+margin-top:15px;
+line-height:2;
+}
+
+.card.active .card-content{
+display:block;
+}
+
+/* المسبحة */
+#counter{
+font-size:55px;
+color:gold;
+text-shadow:0 0 25px gold;
+margin:20px 0;
+}
+
+.tasbeeh-btn{
+background:gold;
+color:black;
+border:none;
+padding:15px 35px;
+border-radius:20px;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 20px gold;
+margin:10px;
+transition:0.2s;
+}
+
+.tasbeeh-btn:active{
+transform:scale(0.95);
+}
+
+.reset-btn{
+background:#800000;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:15px;
+cursor:pointer;
+margin:10px;
+}
+
+/* بطاقة التبرع */
+.blood-card{
+background:linear-gradient(145deg,#b30000,#5a0000);
+border:2px solid gold;
+border-radius:25px;
+padding:35px;
+text-align:center;
+box-shadow:0 0 40px rgba(255,0,0,0.7);
+margin-top:40px;
+}
+
+.blood-card a{
+display:inline-block;
+margin-top:20px;
+background:gold;
+color:black;
+padding:12px 30px;
+border-radius:15px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 20px gold;
+transition:0.3s;
+}
+
+.blood-card a:hover{
+background:white;
+}
+</style>
+
+<div class="clean-container">
+
+<div class="basmala">﷽ بسم الله الرحمن الرحيم</div>
+<div class="sadaqa">صدقة جارية من نسرين لوالديها وأحبتها ولها 🤍</div>
+
+<div class="welcome" id="welcomeMsg"></div>
+
+<!-- أذكار الصباح -->
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">☀ أذكار الصباح</div>
+<div class="card-content">
+أصبحنا وأصبح الملك لله رب العالمين...<br>
+اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور.
+</div>
+</div>
+
+<!-- أذكار المساء -->
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">🌙 أذكار المساء</div>
+<div class="card-content">
+أمسينا وأمسى الملك لله رب العالمين...<br>
+اللهم إني أسألك خير هذه الليلة وخير ما بعدها.
+</div>
+</div>
+
+<!-- صحيح البخاري -->
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">📘 صحيح البخاري</div>
+<div class="card-content">
+<a href="https://waqfeya.net/book.php?bid=1390" target="_blank">قراءة الكتاب</a>
+</div>
+</div>
+
+<!-- صحيح مسلم -->
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">📗 صحيح مسلم</div>
+<div class="card-content">
+<a href="https://waqfeya.net/book.php?bid=1391" target="_blank">قراءة الكتاب</a>
+</div>
+</div>
+
+<!-- سنن أبي داود -->
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">📙 سنن أبي داود</div>
+<div class="card-content">
+<a href="https://waqfeya.net/book.php?bid=1393" target="_blank">قراءة الكتاب</a>
+</div>
+</div>
+
+<!-- المكتبة الوقفية -->
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">📚 المكتبة الوقفية</div>
+<div class="card-content">
+<a href="https://waqfeya.net/" target="_blank">الدخول للموقع</a>
+</div>
+</div>
+
+<!-- المسبحة -->
+<div class="card">
+<div class="card-title">📿 المسبحة الإلكترونية</div>
+<div class="card-content" style="display:block;text-align:center;">
+
+<div id="counter">0</div>
+
+<button class="tasbeeh-btn" onclick="increment()">تسبيح</button>
+<button class="reset-btn" onclick="resetCounter()">إعادة</button>
+
+<p style="color:#ccc;margin-top:10px;">
+سبحان الله • الحمد لله • الله أكبر
+</p>
+
+</div>
+</div>
+
+<!-- التبرع بالدم -->
+<div class="blood-card">
+<h2>🩸 صدقة التبرع بالدم</h2>
+<p>ومن أحياها فكأنما أحيا الناس جميعًا</p>
+<a href="http://ahyaaha.com/client/" target="_blank">
+اضغط للتبرع الآن
+</a>
+</div>
+
+</div>
+
+<script>
+function toggleCard(el){
+el.classList.toggle("active");
+}
+
+/* المسبحة مع حفظ */
+let count = localStorage.getItem("tasbeehCount") || 0;
+document.getElementById("counter").innerText = count;
+
+function increment(){
+count++;
+localStorage.setItem("tasbeehCount", count);
+document.getElementById("counter").innerText = count;
+
+let audio = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+audio.play();
+}
+
+function resetCounter(){
+count = 0;
+localStorage.setItem("tasbeehCount", count);
+document.getElementById("counter").innerText = count;
+}
+
+/* ترحيب تيليغرام */
+if (window.Telegram && Telegram.WebApp) {
+Telegram.WebApp.ready();
+let user = Telegram.WebApp.initDataUnsafe.user;
+if(user){
+document.getElementById("welcomeMsg").innerHTML =
+"مرحبًا بك يا <span style='color:gold'>"+user.first_name+"</span> 🤍<br>اللهم اجعل له نورًا وبركة في حياته.";
+}
+} else {
+document.getElementById("welcomeMsg").innerHTML =
+"مرحبًا بك 🤍<br>نسأل الله أن يكتب لك الأجر والبركة.";
+}
+</script>
+
+<!-- ===== END ULTIMATE ===== -->
 </body>
 </html>
