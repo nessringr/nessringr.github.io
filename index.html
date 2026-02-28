@@ -4,54 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>صدقة جارية لنسرين</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
 font-family:'Cairo',sans-serif;
-background:radial-gradient(circle at top,#111,#000);
+background:linear-gradient(180deg,#000,#111);
 color:#f5e6c8;
-overflow-x:hidden;
 }
-
-body::before, body::after{
-content:"";
-position:fixed;
-top:0;
-width:60px;
-height:100%;
-background:linear-gradient(#d4af37,#7a5c00,#d4af37);
-opacity:0.15;
-z-index:-1;
-}
-body::before{right:0;}
-body::after{left:0;}
 
 header{
 text-align:center;
-padding:30px 10px;
-font-size:26px;
+padding:30px;
+font-size:28px;
 color:#d4af37;
 font-weight:bold;
-border-bottom:1px solid #222;
-}
-
-.moon{
-position:fixed;
-top:40px;
-left:40px;
-font-size:60px;
-color:#d4af37;
-animation:float 6s ease-in-out infinite;
-opacity:0.2;
-}
-
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(20px);}
-100%{transform:translateY(0);}
 }
 
 .container{
@@ -61,85 +29,48 @@ padding:20px;
 }
 
 .card{
-background:#111;
-border:1px solid #333;
-border-radius:15px;
-padding:20px;
-margin:15px 0;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 0 20px rgba(212,175,55,0.1);
-}
-
-.card:hover{
-transform:scale(1.02);
-box-shadow:0 0 25px rgba(212,175,55,0.4);
-}
-
-.section{
-display:none;
-margin-top:15px;
-background:#0d0d0d;
-padding:15px;
-border-radius:10px;
-line-height:2;
+background:#0f0f0f;
+border-radius:20px;
+padding:25px;
+margin:20px 0;
+box-shadow:0 0 30px rgba(212,175,55,0.15);
 }
 
 h2{
 color:#d4af37;
-margin:0;
+}
+
+select{
+width:100%;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+font-size:16px;
 }
 
 audio{
 width:100%;
-margin-top:10px;
-}
-
-.counter-box{
-text-align:center;
 margin-top:15px;
 }
 
-.counter{
-font-size:40px;
-color:#d4af37;
-}
-
-button{
-background:#d4af37;
-border:none;
-padding:10px 20px;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-}
-
-footer{
+.footer{
 text-align:center;
-padding:30px 10px;
-border-top:1px solid #222;
+padding:30px;
 color:#aaa;
-margin-top:40px;
 }
 </style>
 
 <script>
-function toggle(id){
-let x=document.getElementById(id);
-x.style.display = x.style.display==="block"?"none":"block";
-}
-
-let count=0;
-function tasbeeh(){
-count++;
-document.getElementById("counter").innerText=count;
+function playSurah(){
+let surah=document.getElementById("surah").value;
+let player=document.getElementById("player");
+player.src="https://server8.mp3quran.net/minsh/"+surah+".mp3";
+player.play();
 }
 </script>
 </head>
 
 <body>
-
-<div class="moon">☾</div>
 
 <header>
 صدقة جارية لنسرين ووالديها وأهلها وأحبتها 🤍
@@ -147,161 +78,36 @@ document.getElementById("counter").innerText=count;
 
 <div class="container">
 
-<div class="card" onclick="toggle('tilawa')">
-<h2>التلاوات - المنشاوي</h2>
-<div class="section" id="tilawa">
-سورة الملك
-<audio controls>
-<source src="https://download.quranicaudio.com/qdc/minshawi_murattal/067.mp3" type="audio/mpeg">
-</audio>
-سورة يس
-<audio controls>
-<source src="https://download.quranicaudio.com/qdc/minshawi_murattal/036.mp3" type="audio/mpeg">
-</audio>
-</div>
-</div>
-
-<div class="card" onclick="toggle('azkar')">
-<h2>الأذكار</h2>
-<div class="section" id="azkar">
-أذكار الخروج: بسم الله توكلت على الله ولا حول ولا قوة إلا بالله.<br>
-أذكار السفر: سبحان الذي سخر لنا هذا وما كنا له مقرنين.<br>
-أذكار النوم: باسمك اللهم أموت وأحيا.<br>
-قيام الليل: اللهم لك الحمد أنت نور السماوات والأرض.<br>
-صوم الاثنين والخميس: تعرض الأعمال يوم الاثنين والخميس فأحب أن يعرض عملي وأنا صائم.<br>
-فضل القرآن: اقرأوا القرآن فإنه يأتي شفيعاً لأصحابه يوم القيامة.
-</div>
-</div>
-
-<div class="card" onclick="toggle('asmaa')">
-<h2>أسماء الله الحسنى</h2>
-<div class="section" id="asmaa">
-الله: الاسم الأعظم الجامع لكل الصفات.<br>
-الرحمن: واسع الرحمة.<br>
-الرحيم: المنعم على عباده.<br>
-الملك: المتصرف في ملكه.<br>
-القدوس: المنزه عن كل نقص.<br>
-السلام: السالم من العيوب.<br>
-المؤمن: المصدق لعباده.<br>
-المهيمن: الرقيب الحافظ.<br>
-العزيز: القوي الغالب.<br>
-الجبار: الذي يجبر الكسير.<br>
-المتكبر: العظيم المتعالي.<br>
-الخالق: الموجد من العدم.<br>
-البارئ: المميز للخلق.<br>
-المصور: معطي الصور.<br>
-الغفار: كثير المغفرة.<br>
-القهار: الغالب لكل شيء.<br>
-الوهاب: كثير العطاء.<br>
-الرزاق: المتكفل بالأرزاق.<br>
-الفتاح: الذي يفتح أبواب الخير.<br>
-العليم: الذي يعلم كل شيء.<br>
-القابض الباسط: المقدر للأرزاق.<br>
-الخافض الرافع: المعز المذل.<br>
-السميع: الذي يسمع كل شيء.<br>
-البصير: الذي يرى كل شيء.<br>
-الحكم: العادل في قضائه.<br>
-العدل: المنزه عن الظلم.<br>
-اللطيف: البر بعباده.<br>
-الخبير: العالم ببواطن الأمور.<br>
-الحليم: الصبور.<br>
-العظيم: الذي لا أعظم منه.<br>
-الغفور: كثير المغفرة.<br>
-الشكور: الذي يجازي بالقليل الكثير.<br>
-العلي: المرتفع القدر.<br>
-الكبير: العظيم الشأن.<br>
-الحفيظ: الحافظ.<br>
-المقيت: القائم بأرزاق العباد.<br>
-الحسيب: الكافي.<br>
-الجليل: العظيم.<br>
-الكريم: الجواد.<br>
-الرقيب: المراقب.<br>
-المجيب: مجيب الدعاء.<br>
-الواسع: الذي وسع كل شيء.<br>
-الحكيم: المتقن لأفعاله.<br>
-الودود: المحب لعباده.<br>
-المجيد: العظيم الكريم.<br>
-الباعث: باعث الخلق يوم القيامة.<br>
-الشهيد: الحاضر الذي لا يغيب.<br>
-الحق: الثابت الذي لا يتغير.<br>
-الوكيل: الكفيل بأمور عباده.<br>
-القوي: الشديد القوة.<br>
-المتين: القوي الذي لا يضعف.<br>
-الولي: الناصر.<br>
-الحميد: المستحق للحمد.<br>
-المحصي: الذي أحصى كل شيء.<br>
-المبدئ المعيد: الذي يبدأ الخلق ويعيده.<br>
-المحيي المميت: واهب الحياة وسالبها.<br>
-الحي: الذي لا يموت.<br>
-القيوم: القائم بنفسه.<br>
-الواجد: الغني.<br>
-الماجد: الشريف.<br>
-الواحد الأحد: المتفرد.<br>
-الصمد: المقصود في الحاجات.<br>
-القادر المقتدر: التام القدرة.<br>
-المقدم المؤخر: المقدر للأزمنة.<br>
-الأول الآخر الظاهر الباطن: المحيط بكل شيء.<br>
-الوالي: المتولي لأمور خلقه.<br>
-المتعالي: العالي فوق خلقه.<br>
-البر: كثير الإحسان.<br>
-التواب: قابل التوبة.<br>
-المنتقم: شديد العقاب.<br>
-العفو: الماحي للذنوب.<br>
-الرؤوف: شديد الرحمة.<br>
-مالك الملك: صاحب الملك كله.<br>
-ذو الجلال والإكرام: المستحق للتعظيم.<br>
-المقسط: العادل.<br>
-الجامع: جامع الخلق.<br>
-الغني: الذي لا يحتاج.<br>
-المغني: المعطي الغنى.<br>
-المانع: المانع بحكمته.<br>
-الضار النافع: بيده الخير كله.<br>
-النور: منور السماوات والأرض.<br>
-الهادي: المرشد إلى الحق.<br>
-البديع: المبدع بلا مثال.<br>
-الباقي: الدائم.<br>
-الوارث: الباقي بعد فناء الخلق.<br>
-الرشيد: المرشد.<br>
-الصبور: الذي لا يعجل بالعقوبة.
-</div>
-</div>
-
 <div class="card">
-<h2>عداد التسبيح</h2>
-<div class="counter-box">
-<div id="counter" class="counter">0</div>
-<button onclick="tasbeeh()">سبحان الله</button>
-</div>
-</div>
+<h2>التلاوات الكاملة - المنشاوي</h2>
 
-<div class="card">
-<h2>دعوة لزائر الموقع</h2>
-اللهم اجعل هذا الموقع رفعةً لكل من دخله، واكتب له الأجر بكل حرف قرأه.
-</div>
+اختر السورة:
 
-<div class="card">
-<h2>دعاء لصاحبة الموقع</h2>
-اللهم اغفر لنسرين ولوالديها وأهلها وأحبتها، واجعل هذا العمل نوراً في قبرها ورفعةً في درجاتها.
-</div>
+<select id="surah" onchange="playSurah()">
+<option value="">-- اختر سورة --</option>
+<option value="001">الفاتحة</option>
+<option value="002">البقرة</option>
+<option value="003">آل عمران</option>
+<option value="004">النساء</option>
+<option value="005">المائدة</option>
+<option value="036">يس</option>
+<option value="055">الرحمن</option>
+<option value="067">الملك</option>
+<option value="078">النبأ</option>
+<option value="112">الإخلاص</option>
+<option value="113">الفلق</option>
+<option value="114">الناس</option>
+</select>
 
-<div class="card">
-<h2>سورة الفاتحة - صدقة على موتانا</h2>
-<div class="section" style="display:block;">
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
-الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<br>
-الرَّحْمَٰنِ الرَّحِيمِ<br>
-مَالِكِ يَوْمِ الدِّينِ<br>
-إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>
-اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ<br>
-صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
-</div>
+<audio id="player" controls></audio>
+
 </div>
 
 </div>
 
-<footer>
-هذا العمل خالص لوجه الله تعالى 🤍
-</footer>
+<div class="footer">
+اللهم اجعل هذا العمل نوراً في قبر نسرين ووالديها 🤍
+</div>
 
 </body>
 </html>
