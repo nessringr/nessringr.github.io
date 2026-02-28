@@ -9,55 +9,97 @@
 body{
 margin:0;
 font-family:Tahoma;
-background:linear-gradient(to bottom,#0c1445,#000814);
+background:radial-gradient(circle at top,#0f1b3d,#000814 70%);
 color:white;
-text-align:center;
 direction:rtl;
+text-align:center;
+overflow-x:hidden;
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:0.08;
+z-index:-1;
+animation:move 60s linear infinite;
+}
+
+@keyframes move{
+from{background-position:0 0;}
+to{background-position:1000px 1000px;}
 }
 
 h1{
-margin-top:30px;
-font-size:28px;
+margin-top:40px;
+font-size:24px;
 }
 
-.container{
+.grid{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:15px;
-margin:30px;
+padding:20px;
 }
 
 .card{
 background:rgba(255,255,255,0.08);
-border-radius:15px;
+border-radius:20px;
 padding:15px;
-width:140px;
+width:130px;
 cursor:pointer;
 transition:0.3s;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover{
-background:rgba(255,255,255,0.2);
+transform:scale(1.05);
+background:rgba(255,255,255,0.18);
 }
 
 .icon{
-font-size:30px;
-margin-bottom:10px;
+font-size:26px;
+margin-bottom:8px;
 }
 
 .section{
-display:none;
-margin:20px;
-padding:15px;
+max-height:0;
+overflow:hidden;
+transition:max-height 0.6s ease;
 background:rgba(255,255,255,0.05);
-border-radius:15px;
+margin:15px;
+border-radius:20px;
+padding:0 15px;
+}
+
+.section.open{
+max-height:1000px;
+padding:15px;
 }
 
 audio{
-width:90%;
-margin:10px 0;
+width:100%;
+margin-top:10px;
 }
+
+.tasbeeh{
+font-size:35px;
+margin:20px;
+}
+
+button{
+padding:8px 18px;
+border:none;
+border-radius:20px;
+background:#1e2a55;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
 footer{
 margin:30px;
 font-size:14px;
@@ -67,99 +109,91 @@ opacity:0.8;
 
 <script>
 function toggle(id){
-var x=document.getElementById(id);
-if(x.style.display==="block"){
-x.style.display="none";
-}else{
-x.style.display="block";
+document.getElementById(id).classList.toggle("open");
 }
+
+var count=0;
+function addTasbeeh(){
+count++;
+document.getElementById("counter").innerText=count;
 }
 </script>
 
 </head>
 <body>
 
+<div class="stars"></div>
+
 <h1>🌙 صدقة جارية لنسرين ووالديها 🤍</h1>
 
-<div class="container">
+<div class="tasbeeh">
+📿 <span id="counter">0</span><br>
+<button onclick="addTasbeeh()">تسبيح</button>
+</div>
+
+<div class="grid">
 
 <div class="card" onclick="toggle('quran')">
-<div class="icon">🎧🌙</div>
-تلاوات المنشاوي
+<div class="icon">🎧</div>
+تلاوات
 </div>
 
 <div class="card" onclick="toggle('morning')">
-<div class="icon">☀️🌙</div>
-أذكار الصباح
+<div class="icon">☀️</div>
+الصباح
 </div>
 
 <div class="card" onclick="toggle('evening')">
-<div class="icon">🌆🌙</div>
-أذكار المساء
+<div class="icon">🌆</div>
+المساء
 </div>
 
 <div class="card" onclick="toggle('sleep')">
-<div class="icon">🌙💤</div>
-أذكار النوم
-</div>
-
-<div class="card" onclick="toggle('exit')">
-<div class="icon">🚪🌙</div>
-أذكار الخروج
+<div class="icon">🌙</div>
+النوم
 </div>
 
 <div class="card" onclick="toggle('travel')">
-<div class="icon">✈️🌙</div>
-أذكار السفر
+<div class="icon">✈️</div>
+السفر
 </div>
 
 <div class="card" onclick="toggle('hadith')">
-<div class="icon">📖🌙</div>
+<div class="icon">📖</div>
 أحاديث
 </div>
 
 </div>
 
 <div id="quran" class="section">
-<h2>تلاوة سورة الرحمن - المنشاوي</h2>
+<h3>سورة الرحمن - المنشاوي</h3>
 <audio controls>
 <source src="https://download.quranicaudio.com/quran/muhammad_siddeeq_al_minshawee/055.mp3" type="audio/mpeg">
 </audio>
 </div>
 
 <div id="morning" class="section">
-<h2>أذكار الصباح</h2>
 <p>اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور.</p>
 </div>
 
 <div id="evening" class="section">
-<h2>أذكار المساء</h2>
 <p>اللهم بك أمسينا وبك أصبحنا وبك نحيا وبك نموت وإليك المصير.</p>
 </div>
 
 <div id="sleep" class="section">
-<h2>أذكار النوم</h2>
 <p>باسمك اللهم أموت وأحيا.</p>
 </div>
 
-<div id="exit" class="section">
-<h2>أذكار الخروج من المنزل</h2>
-<p>بسم الله توكلت على الله ولا حول ولا قوة إلا بالله.</p>
-</div>
-
 <div id="travel" class="section">
-<h2>أذكار السفر</h2>
 <p>سبحان الذي سخر لنا هذا وما كنا له مقرنين وإنا إلى ربنا لمنقلبون.</p>
 </div>
 
 <div id="hadith" class="section">
-<h2>حديث عن الصيام</h2>
 <p>قال رسول الله ﷺ: من صام رمضان إيماناً واحتساباً غفر له ما تقدم من ذنبه.</p>
 </div>
 
 <footer>
-دعوة من القلب 🤍  
-اللهم اغفر لنسرين ولوالديها وارحمهم واجعل هذا العمل صدقة جارية.
+اللهم اغفر لنسرين ولوالديها وارحمهم واجعل هذا العمل صدقة جارية 🤍
 </footer>
 
 </body>
