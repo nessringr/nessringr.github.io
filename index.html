@@ -1,171 +1,83 @@
-cursor:pointer;
-transition:0.3s;
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Grnessrinbot</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Amiri',serif;
+  background:#0b0f1a;
+  color:white;
+  text-align:center;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.card{
+  background:#111827;
+  padding:25px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
 .card:hover{
-box-shadow:0 0 35px rgba(212,175,55,0.35);
-transform:translateY(-4px);
+  box-shadow:0 0 35px rgba(212,175,55,0.35);
+  transform:translateY(-4px);
 }
 
-.card h2{
-margin:0;
-color:#d4af37;
-font-family:'Amiri',serif;
-}
-
-.content{
-display:none;
-margin-top:15px;
-line-height:2;
-color:#ddd;
-}
-
-.counter-box{
-text-align:center;
-margin-top:15px;
-}
-
-.counter{
-font-size:40px;
-color:#d4af37;
-margin:10px 0;
-}
-
-button{
-background:#d4af37;
-border:none;
-padding:10px 25px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
+.icon{
+  font-size:35px;
+  margin-bottom:10px;
 }
 
 .footer{
-margin-top:60px;
-text-align:center;
-padding:40px 20px;
-border-top:1px solid #222;
-color:#aaa;
-font-family:'Amiri',serif;
-}
-
-@media(max-width:800px){
-.grid{
-grid-template-columns:1fr;
-}
+  margin-top:40px;
+  padding:20px;
+  border-top:1px solid #333;
+  color:#aaa;
 }
 </style>
-
-<script>
-function toggle(id){
-let el=document.getElementById(id);
-el.style.display = el.style.display === "block" ? "none" : "block";
-}
-
-let count=0;
-function tasbeeh(){
-count++;
-document.getElementById("counter").innerText=count;
-}
-</script>
-
 </head>
+
 <body>
 
-<header>
+<h1>🌙 Grnessrinbot</h1>
+
+<div class="grid">
+
+  <div class="card" onclick="window.open('https://sunnah.com/bukhari','_blank')">
+    <div class="icon">📖</div>
+    <div>صحيح البخاري</div>
+  </div>
+
+  <div class="card" onclick="window.open('https://sunnah.com/muslim','_blank')">
+    <div class="icon">📚</div>
+    <div>صحيح مسلم</div>
+  </div>
+
+  <div class="card" onclick="window.open('https://waqfeya.net/category.php?cid=23','_blank')">
+    <div class="icon">📘</div>
+    <div>كتب السلف</div>
+  </div>
+
+  <div class="card" onclick="window.open('https://sunnah.com/hisn','_blank')">
+    <div class="icon">🤲</div>
+    <div>الأدعية المأثورة</div>
+  </div>
+
+</div>
+
+<div class="footer">
 وقف نسرين — صدقة جارية عنها وعن والديها وأهلها وأحبتها
-</header>
-
-<div cla1000;">
-<div style="background:#012;margin:5% auto;padding:25px;width:95%;max-width:600px;border-radius:20px;color:white;max-height:80%;overflow:auto;box-shadow:0 0 40px gold;">
-<span onclick="document.getElementById('megaPopup').style.display='none'" style="float:right;cursor:pointer;color:red;">✖</span>
-<div id="megaBody"></div>
-</div>
 </div>
 
-<script>
-
-/* ⭐ نجوم */
-function explodeStars(){
-for(let i=0;i<20;i++){
-let s=document.createElement("div");
-s.style.position="fixed";
-s.style.width="6px";
-s.style.height="6px";
-s.style.background="gold";
-s.style.borderRadius="50%";
-s.style.left=Math.random()*window.innerWidth+"px";
-s.style.top=Math.random()*window.innerHeight+"px";
-s.style.zIndex="9999";
-document.body.appendChild(s);
-setTimeout(()=>s.remove(),800);
-}
-}
-
-/* 🌟 أسماء الله */
-function showAllahNames(){
-explodeStars();
-
-var content = "<h3 style='color:gold;text-align:center;'>أسماء الله الحسنى</h3>";
-content += "<div style='text-align:right;'>";
-
-var names = ["الله","الرحمن","الرحيم","الملك","القدوس","السلام","المؤمن","المهيمن","العزيز","الجبار","المتكبر","الخالق","البارئ","المصور","الغفار","القهار","الوهاب","الرزاق","الفتاح","العليم","السميع","البصير","الحكيم","اللطيف","الخبير","الحليم","العظيم","الغفور","الشكور","العلي","الكبير","الحفيظ","الكريم","الرقيب","المجيب","الواسع","الودود","المجيد","الحق","الوكيل","القوي","المتين","الولي","الحميد","المحيي","المميت","الحي","القيوم","الواحد","الأحد","الصمد","القادر","الأول","الآخر","الظاهر","الباطن","البر","التواب","العفو","الرؤوف","النور","الهادي","البديع","الباقي","الوارث","الرشيد","الصبور"];
-
-for(var i=0;i<names.length;i++){
-content += "<p><b>"+names[i]+"</b></p>";
-}
-
-content += "<hr><p>🤲 اللهم إنا نسألك بأسمائك الحسنى أن تغفر لنا وترحمنا.</p>";
-content += "</div>";
-
-document.getElementById("megaBody").innerHTML = content;
-document.getElementById("megaPopup").style.display = "block";
-}
-
-/* 📖 التجويد */
-function showTajweed(){
-explodeStars();
-
-var content = "<h3 style='color:gold;text-align:center;'>أحكام التجويد</h3>";
-content += "<div style='text-align:right;'>";
-
-content += "<h4>أحكام النون الساكنة والتنوين</h4>";
-content += "<ul><li>الإظهار</li><li>الإدغام</li><li>الإخفاء</li><li>الإقلاب</li></ul>";
-
-content += "<h4>أحكام الميم الساكنة</h4>";
-content += "<ul><li>إظهار شفوي</li><li>إدغام شفوي</li><li>إخفاء شفوي</li></ul>";
-
-content += "<h4>المدود</h4>";
-content += "<ul><li>المد الطبيعي</li><li>المد المتصل</li><li>المد المنفصل</li></ul>";
-
-content += "<h4>القلقلة</h4><p>قطب جد</p>";
-
-content += "</div>";
-
-document.getElementById("megaBody").innerHTML = content;
-document.getElementById("megaPopup").style.display = "block";
-}
-
-</script>
-  <!-- 📚 كتب السلف -->
-<div class="card" onclick="openSalaf()">
-  <div class="icon">📚</div>
-  <div>كتب السلف</div>
-</div>
-
-<!-- 🤲 الأدعية المأثورة -->
-<div class="card" onclick="openDua()">
-  <div class="icon">🤲</div>
-  <div>الأدعية المأثورة</div>
-</div>
-
-<script>
-function openSalaf(){
-  window.open("https://waqfeya.net/category.php?cid=23","_blank");
-}
-
-function openDua(){
-  window.open("https://sunnah.com/hisn","_blank");
-}
-</script>
-
+</body>
+</html>
