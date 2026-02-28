@@ -602,5 +602,87 @@ location.reload();
 </script>
 
 <!-- ===== END IMPERIAL UI ===== -->
+<!-- ===== BLOOD DONATION IMPERIAL BUTTON ===== -->
+
+<style>
+.blood-card{
+background:linear-gradient(145deg,#8b0000,#4b0000);
+border:1px solid gold;
+border-radius:22px;
+padding:30px;
+text-align:center;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 20px rgba(255,0,0,0.6);
+position:relative;
+overflow:hidden;
+}
+
+.blood-card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.3),transparent);
+transition:0.6s;
+}
+
+.blood-card:hover::before{
+left:100%;
+}
+
+.blood-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 35px red;
+}
+
+.blood-card h3{
+color:white;
+font-size:22px;
+margin-bottom:15px;
+text-shadow:0 0 15px red;
+}
+
+.blood-card a{
+display:inline-block;
+margin-top:10px;
+background:gold;
+color:black;
+padding:10px 22px;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 15px gold;
+transition:0.3s;
+}
+
+.blood-card a:hover{
+background:white;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+let grid=document.querySelector(".grid");
+if(grid){
+let bloodDiv=document.createElement("div");
+bloodDiv.className="blood-card";
+bloodDiv.innerHTML=`
+<h3>🩸 صدقة التبرع بالدم</h3>
+قال تعالى: "ومن أحياها فكأنما أحيا الناس جميعًا"<br><br>
+<a href="http://ahyaaha.com/client/" target="_blank">
+اضغط للتبرع الآن
+</a>
+`;
+grid.appendChild(bloodDiv);
+}
+
+});
+</script>
+
+<!-- ===== END BLOOD IMPERIAL ===== -->
 </body>
 </html>
