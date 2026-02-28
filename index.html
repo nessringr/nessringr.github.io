@@ -397,5 +397,129 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-</script></body>
+</script>
+<!-- ====== قسم الصدقة الجارية ====== -->
+<style>
+.charity-section {
+  margin: 60px 20px;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  background: linear-gradient(145deg,#140000,#2b0000);
+  border: 2px solid #8b0000;
+  box-shadow: 0 0 25px rgba(139,0,0,0.6);
+}
+
+.charity-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4d4d;
+  margin-bottom: 15px;
+}
+
+.charity-desc {
+  color: #eee;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.charity-btn {
+  background: linear-gradient(45deg,#ff0000,#8b0000);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.charity-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff0000;
+}
+</style>
+
+<div class="charity-section">
+  <div class="charity-title">🩸 صدقة جارية – التبرع بالدم</div>
+  <div class="charity-desc">
+    تبرعك بالدم قد ينقذ حياة إنسان 💓<br>
+    دعوة من نسرين خالصة لكم
+  </div>
+  <button class="charity-btn"
+    onclick="window.open('http://ahyaaha.com/client','_blank')">
+    زيارة منصة التبرع بالدم
+  </button>
+</div>
+
+<!-- ====== قسم التلاوات ====== -->
+<style>
+.quran-section {
+  margin: 60px 20px;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  background: linear-gradient(145deg,#001a14,#002e23);
+  border: 2px solid #0f5132;
+  box-shadow: 0 0 25px rgba(0,128,0,0.5);
+}
+
+.quran-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #7fffd4;
+  margin-bottom: 20px;
+}
+
+.audio-box {
+  margin-top: 20px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+</style>
+
+<div class="quran-section">
+  <div class="quran-title">
+    🎧 تلاوات عطرة – الشيخ محمد صديق المنشاوي
+  </div>
+
+  <div class="audio-box">
+    سورة الفاتحة
+    <audio controls>
+      <source src="https://server8.mp3quran.net/minsh/001.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="audio-box">
+    سورة الرحمن
+    <audio controls>
+      <source src="https://server8.mp3quran.net/minsh/055.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="audio-box">
+    سورة يس
+    <audio controls>
+      <source src="https://server8.mp3quran.net/minsh/036.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</div>
+
+<script>
+// إيقاف أي تلاوة أخرى عند تشغيل واحدة
+const audios = document.querySelectorAll("audio");
+audios.forEach(audio => {
+  audio.addEventListener("play", () => {
+    audios.forEach(other => {
+      if (other !== audio) {
+        other.pause();
+      }
+    });
+  });
+});
+</script>
+</body>
 </html>
