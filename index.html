@@ -516,17 +516,14 @@ animation:fall 1s linear forwards;
 <script>
 function openBook(book){
 createStars();
-
 let links={
 bukhari:"https://sunnah.com/bukhari",
 muslim:"https://sunnah.com/muslim",
 nawawi:"https://sunnah.com/nawawi40",
 riyad:"https://sunnah.com/riyadussalihin"
 };
-
 window.open(links[book],"_blank");
 }
-
 function createStars(){
 for(let i=0;i<25;i++){
 let star=document.createElement("div");
@@ -534,10 +531,7 @@ star.className="star";
 star.style.left=Math.random()*window.innerWidth+"px";
 star.style.top=Math.random()*window.innerHeight+"px";
 document.body.appendChild(star);
-
 setTimeout(()=>{star.remove();},1000);
-}
-}
 </script>
   <style>
 <div class="icon-box" onclick="showSalafBooks()">
@@ -572,13 +566,11 @@ animation:rotateMoon 20s linear infinite;
 0%{transform:rotate(0deg);}
 100%{transform:rotate(360deg);}
 }
-
 /* ✨ لمعان الأزرار */
 .lib-btn{
 position:relative;
 overflow:hidden;
 }
-
 .lib-btn::after{
 content:"";
 position:absolute;
@@ -592,11 +584,9 @@ rgba(255,255,255,0.6),
 transparent);
 transition:0.5s;
 }
-
 .lib-btn:hover::after{
 left:100%;
 }
-
 /* 💫 اهتزاز ناعم */
 .lib-btn:active{
 transform:scale(0.95);
@@ -616,7 +606,6 @@ animation:fall 1.2s ease-out forwards;
 0%{transform:translateY(0) scale(1);}
 100%{transform:translateY(250px) scale(0);opacity:0;}
 }
-
 /* ✨ خلفية نجوم خفيفة */
 body::after{
 content:"";
