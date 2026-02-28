@@ -788,5 +788,44 @@ document.getElementById("popup").style.display = "block";
 }
 
 </script>
+  <script>
+
+function showSalafBooks(){
+let content = `
+<h2 style="color:gold;text-align:center;">📚 كتب ابن تيمية</h2>
+<div style="text-align:right;">
+<h3>1️⃣ العقيدة الواسطية</h3>
+<p>كتاب في عقيدة أهل السنة والجماعة.</p>
+
+<h3>2️⃣ مجموع الفتاوى</h3>
+<p>موسوعة فتاوى شيخ الإسلام ابن تيمية.</p>
+
+<h3>3️⃣ اقتضاء الصراط المستقيم</h3>
+<p>في التمسك بالسنة ومخالفة أهل البدع.</p>
+</div>
+`;
+
+document.getElementById("popupBody").innerHTML = content;
+document.getElementById("popup").style.display = "block";
+}
+
+
+function showPropheticDua(){
+let content = `
+<h2 style="color:gold;text-align:center;">🤲 أدعية مأثورة عن النبي ﷺ</h2>
+<div style="text-align:right;">
+<p><b>اللهم آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار</b></p>
+<p><b>يا مقلب القلوب ثبت قلبي على دينك</b></p>
+<p><b>اللهم إني أعوذ بك من الهم والحزن</b></p>
+<p><b>اللهم إني أسألك الهدى والتقى والعفاف والغنى</b></p>
+<p><b>اللهم اغفر لي خطيئتي وجهلي وإسرافي في أمري</b></p>
+</div>
+`;
+
+document.getElementById("popupBody").innerHTML = content;
+document.getElementById("popup").style.display = "block";
+}
+
+  </script>
 </body>
 </html>
