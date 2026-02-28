@@ -460,64 +460,55 @@ border:1px solid rgba(255,215,0,0.4);
 color:#fff;text-align:center;">
 
 <h2 style="color:#FFD700;font-size:26px;margin-bottom:25px;">
+<!-- 🎧 تلاوات الشيخ المنشاوي -->
+<div style="max-width:700px;margin:40px auto;padding:25px;
+background:linear-gradient(145deg,#064,#012);
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,255,150,0.3);
+color:white;text-align:center;">
+
+<h2 style="margin-bottom:20px;color:#00ffcc;">
 🎧 تلاوات عطرة – الشيخ محمد صديق المنشاوي
 </h2>
 
-<!-- الفاتحة -->
-<p>سورة الفاتحة</p>
-<audio controls style="width:100%;margin-bottom:20px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/001.mp3" type="audio/mpeg">
-</audio>
-
-<!-- البقرة (أول 10 آيات) -->
-<p>سورة البقرة (بدايتها)</p>
-<audio controls style="width:100%;margin-bottom:20px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/002.mp3" type="audio/mpeg">
-</audio>
-
-<!-- يس -->
-<p>سورة يس</p>
-<audio controls style="width:100%;margin-bottom:20px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/036.mp3" type="audio/mpeg">
-</audio>
-
-<!-- الرحمن -->
-<p>سورة الرحمن</p>
-<audio controls style="width:100%;margin-bottom:20px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/055.mp3" type="audio/mpeg">
-</audio>
-
-<!-- الواقعة -->
-<p>سورة الواقعة</p>
-<audio controls style="width:100%;margin-bottom:20px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/056.mp3" type="audio/mpeg">
-</audio>
-
-<!-- الملك -->
-<p>سورة الملك</p>
-<audio controls style="width:100%;margin-bottom:20px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/067.mp3" type="audio/mpeg">
-</audio>
-
-<!-- الإخلاص -->
-<p>سورة الإخلاص</p>
-<audio controls style="width:100%;margin-bottom:10px;">
-<source src="https://download.quranicaudio.com/quran/minshawi_murattal/112.mp3" type="audio/mpeg">
-</audio>
+<button class="qbtn" onclick="openLink('001')">سورة الفاتحة</button>
+<button class="qbtn" onclick="openLink('036')">سورة يس</button>
+<button class="qbtn" onclick="openLink('055')">سورة الرحمن</button>
+<button class="qbtn" onclick="openLink('056')">سورة الواقعة</button>
+<button class="qbtn" onclick="openLink('067')">سورة الملك</button>
+<button class="qbtn" onclick="openLink('112')">سورة الإخلاص</button>
+<button class="qbtn" onclick="openLink('113')">سورة الفلق</button>
+<button class="qbtn" onclick="openLink('114')">سورة الناس</button>
 
 </div>
 
+<style>
+.qbtn{
+display:block;
+width:100%;
+margin:10px 0;
+padding:14px;
+border:none;
+border-radius:40px;
+background:linear-gradient(90deg,#00ffcc,#00cc88);
+color:#000;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+.qbtn:hover{
+transform:scale(1.05);
+}
+</style>
+
 <script>
-const audios = document.querySelectorAll("audio");
-audios.forEach(audio => {
-  audio.addEventListener("play", () => {
-    audios.forEach(other => {
-      if (other !== audio) {
-        other.pause();
-      }
-    });
-  });
-});
+function openLink(num){
+window.open(
+"https://download.quranicaudio.com/quran/minshawi_murattal/"+num+".mp3",
+"_blank"
+);
+}
 </script>
+
 </body>
 </html>
