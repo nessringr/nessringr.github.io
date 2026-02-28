@@ -226,6 +226,103 @@ document.getElementById("counter").innerText=count;
 <div class="footer">
 هذا العمل خالص لوجه الله تعالى 🤍
 </div>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+<style>
+/* تأثير دخول ناعم */
+body {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(15px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* شريط علوي فاخر */
+.top-bar {
+  background: linear-gradient(90deg,#b8860b,#d4af37,#f5deb3);
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #111;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* هلال متحرك */
+.moon {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  animation: floatMoon 4s ease-in-out infinite;
+}
+
+@keyframes floatMoon {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-6px);}
+  100% {transform: translateY(0);}
+}
+
+/* زر مشاركة أنيق */
+.share-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg,#d4af37,#b8860b);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+</style>
+
+<script>
+const tg = window.Telegram.WebApp;
+tg.expand();
+tg.setHeaderColor("#0f172a");
+tg.setBackgroundColor("#0b1120");
+
+/* إضافة الشريط العلوي */
+const bar = document.createElement("div");
+bar.className = "top-bar";
+bar.innerHTML = "وقف نسرين | صدقة جارية";
+document.body.prepend(bar);
+
+/* هلال */
+const moon = document.createElement("div");
+moon.className = "moon";
+moon.innerHTML = "🌙";
+document.body.appendChild(moon);
+
+/* ترحيب باسم المستخدم */
+if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+  const user = tg.initDataUnsafe.user.first_name;
+  const welcome = document.createElement("div");
+  welcome.innerHTML = "أهلاً بك " + user + " 🤍 نسأل الله أن يجعل زيارتك نوراً وأجراً";
+  welcome.style.cssText = `
+    background: linear-gradient(90deg,#d4af37,#f5deb3);
+    color:#111;
+    padding:12px;
+    text-align:center;
+    border-radius:12px;
+    margin:15px;
+  `;
+  document.body.prepend(welcome);
+}
+
+/* زر مشاركة */
+const shareBtn = document.createElement("button");
+shareBtn.className = "share-btn";
+shareBtn.innerHTML = "📤 مشاركة الأجر";
+shareBtn.onclick = () => {
+  tg.openTelegramLink("https://t.me/share/url?url=https://nessringr.github.io/?v=999&text=🌿 صدقة جارية لنسرين ووالديها وأحبتها");
+};
+document.body.appendChild(shareBtn);
+</script>
 </body>
 </html>
