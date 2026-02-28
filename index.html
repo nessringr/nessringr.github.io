@@ -894,32 +894,45 @@ let content=`
 <p>يا حي يا قيوم برحمتك نستغيث.</p>
 `;
 
-document.getElementById("megaBody").innerHTML=content;
-document.getElementById("megaPopup").style.display="block";
-}
-
-/* 📖 أحكام التجويد */
 function showTajweed(){
 explodeStars();
 
 let content=`
-<h3>أحكام التجويد</h3>
+<h3>📖 أحكام التجويد بالتفصيل</h3>
 
+<h4>1️⃣ أحكام النون الساكنة والتنوين:</h4>
 <ul>
-<li><b>الإظهار:</b> إخراج الحرف من مخرجه دون غنة.</li>
-<li><b>الإدغام:</b> إدخال حرف في حرف.</li>
-<li><b>الإخفاء:</b> النطق بحرف بين الإظهار والإدغام.</li>
-<li><b>المد الطبيعي:</b> مد حرف المد حركتين.</li>
-<li><b>القلقلة:</b> اضطراب الصوت عند النطق بالحرف.</li>
+<li><b>الإظهار:</b> إخراج النون من غير غنة (ء هـ ع ح غ خ).</li>
+<li><b>الإدغام:</b> إدخال النون في الحرف الذي بعدها (يرملون).</li>
+<li><b>الإخفاء:</b> إخفاء النون مع غنة (15 حرفاً).</li>
+<li><b>الإقلاب:</b> قلب النون ميماً عند الباء.</li>
 </ul>
+
+<h4>2️⃣ أحكام الميم الساكنة:</h4>
+<ul>
+<li>إظهار شفوي</li>
+<li>إدغام شفوي</li>
+<li>إخفاء شفوي</li>
+</ul>
+
+<h4>3️⃣ المدود:</h4>
+<ul>
+<li>المد الطبيعي (حركتان)</li>
+<li>المد المتصل</li>
+<li>المد المنفصل</li>
+<li>مد العارض للسكون</li>
+<li>مد البدل</li>
+</ul>
+
+<h4>4️⃣ القلقلة:</h4>
+<p>حروفها: قطب جد — وترتد عند السكون.</p>
+
+<h4>5️⃣ التفخيم والترقيق:</h4>
+<p>حروف التفخيم: خص ضغط قظ.</p>
 `;
 
 document.getElementById("megaBody").innerHTML=content;
 document.getElementById("megaPopup").style.display="block";
-}
-
-function closeMega(){
-document.getElementById("megaPopup").style.display="none";
 }
 
 </script>
