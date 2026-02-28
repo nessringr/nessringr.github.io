@@ -508,5 +508,93 @@ window.open(
 "_blank"
 );
 }
+  <!-- 🌟 المكتبة السنية الأسطورية -->
+<div class="library-box">
+  <h2>📚 مكتبة السنة النبوية</h2>
+
+  <button class="lib-btn" onclick="openBook('bukhari')">📖 صحيح البخاري</button>
+  <button class="lib-btn" onclick="openBook('muslim')">📖 صحيح مسلم</button>
+  <button class="lib-btn" onclick="openBook('nawawi')">🌙 الأربعون النووية</button>
+  <button class="lib-btn" onclick="openBook('riyad')">🕌 رياض الصالحين</button>
+</div>
+
+<style>
+.library-box{
+max-width:700px;
+margin:60px auto;
+padding:30px;
+background:linear-gradient(145deg,#021,#063);
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,215,0,0.4);
+color:white;
+}
+
+.library-box h2{
+margin-bottom:25px;
+color:#FFD700;
+font-size:22px;
+}
+
+.lib-btn{
+display:block;
+width:100%;
+margin:12px 0;
+padding:15px;
+border:none;
+border-radius:40px;
+background:linear-gradient(90deg,#FFD700,#ff9900);
+color:#000;
+font-size:17px;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.lib-btn:hover{
+transform:scale(1.07);
+}
+.star{
+position:fixed;
+width:6px;
+height:6px;
+background:gold;
+border-radius:50%;
+animation:fall 1s linear forwards;
+}
+
+@keyframes fall{
+0%{transform:translateY(0);}
+100%{transform:translateY(200px);opacity:0;}
+}
+</style>
+
+<script>
+function openBook(book){
+createStars();
+
+let links={
+bukhari:"https://sunnah.com/bukhari",
+muslim:"https://sunnah.com/muslim",
+nawawi:"https://sunnah.com/nawawi40",
+riyad:"https://sunnah.com/riyadussalihin"
+};
+
+window.open(links[book],"_blank");
+}
+
+function createStars(){
+for(let i=0;i<25;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*window.innerWidth+"px";
+star.style.top=Math.random()*window.innerHeight+"px";
+document.body.appendChild(star);
+
+setTimeout(()=>{star.remove();},1000);
+}
+}
+</script>
 </body>
 </html>
