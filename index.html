@@ -1646,5 +1646,27 @@ window.addEventListener("DOMContentLoaded", function(){
 });
 
 </script>
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+
+  const keywords = [
+    "كتب السلف",
+    "المكتبة الوقفية",
+    "صحيح البخاري",
+    "صحيح مسلم",
+    "سنن ابن ماجه"
+  ];
+
+  document.querySelectorAll("h1,h2,h3,a,div").forEach(el=>{
+    if(keywords.some(word => el.innerText.includes(word))){
+      let card = el.closest(".card") || el.parentElement;
+      if(card){
+        card.remove();
+      }
+    }
+  });
+
+});
+</script>
 </body>
 </html>
