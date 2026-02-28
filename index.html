@@ -1575,6 +1575,54 @@ window.addEventListener("DOMContentLoaded", function(){
 
  if(window.Telegram && Telegram.WebApp){
    Telegram.WebApp.ready();
-       
+ <script>
+window.addEventListener("DOMContentLoaded", function(){
+
+  if(window.Telegram && Telegram.WebApp){
+    Telegram.WebApp.ready();
+    let user = Telegram.WebApp.initDataUnsafe.user;
+    let name = user ? user.first_name : "زائرنا الكريم";
+
+    // إنشاء صندوق الترحيب
+    let welcomeBox = document.createElement("div");
+    welcomeBox.style.background = "linear-gradient(135deg,#e6c35c,#b9932f)";
+    welcomeBox.style.color = "#000";
+    welcomeBox.style.padding = "20px";
+    welcomeBox.style.margin = "15px";
+    welcomeBox.style.borderRadius = "20px";
+    welcomeBox.style.fontSize = "18px";
+    welcomeBox.style.fontWeight = "bold";
+    welcomeBox.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
+    welcomeBox.innerHTML =
+      "🌙 أهلاً بك <span style='color:white'>" + name + "</span><br>نسأل الله أن يجعل زيارتك نورًا وأجرًا";
+
+    // شريط العنوان الذهبي
+    let titleBar = document.createElement("div");
+    titleBar.style.background = "linear-gradient(to right,#e6c35c,#b9932f)";
+    titleBar.style.padding = "10px";
+    titleBar.style.marginTop = "10px";
+    titleBar.style.fontWeight = "bold";
+    titleBar.style.color = "#000";
+    titleBar.innerHTML = "وقف نسرين | صدقة جارية";
+
+    // النص الكبير
+    let bigText = document.createElement("div");
+    bigText.style.color = "#e6c35c";
+    bigText.style.fontSize = "28px";
+    bigText.style.margin = "30px 10px";
+    bigText.style.lineHeight = "1.8";
+    bigText.innerHTML =
+      "وقف نسرين — صدقة جارية<br>عنها وعن والديها وأهلها وأحبتها";
+
+    // إدراجهم في أعلى الصفحة
+    let body = document.body;
+    body.insertBefore(bigText, body.children[1]);
+    body.insertBefore(titleBar, body.children[1]);
+    body.insertBefore(welcomeBox, body.children[1]);
+
+  }
+
+});
+</script>      
 </body>
 </html>
