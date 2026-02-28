@@ -1542,5 +1542,61 @@ booksSection.innerHTML = `
 document.body.insertBefore(booksSection, document.body.children[3]);
 
 </script>
+    <script>
+// ================== حذف خانة اكتب اسمك ==================
+document.querySelectorAll("input").forEach(el=>{
+  if(el.placeholder && el.placeholder.includes("اسم")){
+    el.remove();
+  }
+});
+
+// ================== اسم الزائر من تيليغرام ==================
+if(window.Telegram && Telegram.WebApp){
+ Telegram.WebApp.ready();
+ let user = Telegram.WebApp.initDataUnsafe.user;
+ if(user){
+   let welcome = document.createElement("div");
+   welcome.style.margin="15px";
+   welcome.style.fontSize="18px";
+   welcome.style.color="gold";
+   welcome.innerHTML =
+   "🌿 مرحبًا بك يا <b>"+user.first_name+"</b><br>نسأل الله أن يجعل لك نورًا في قلبك ودعوة مستجابة";
+   document.body.insertBefore(welcome, document.body.firstChild.nextSibling);
+ }
+}
+
+// ================== تصحيح الدعاء بعد البسملة ==================
+document.body.innerHTML = document.body.innerHTML.replace(
+"اللهم اجعل هذا المكان نورا وسكينة",
+"اللهم اجعل هذا الموقع نورًا وسكينةً لقلب زائره"
+);
+
+// ================== إضافة دعاء الصدقة الجارية المنظم ==================
+let sadaqa = document.createElement("div");
+sadaqa.style.margin="20px";
+sadaqa.style.fontSize="18px";
+sadaqa.style.color="gold";
+sadaqa.innerHTML =
+"( صدقة جارية لنسرين ووالديها وأحبتها، جعله الله نورًا لنا ولكم وذخرًا وصدقةً تنفعنا في قبورنا )";
+document.body.appendChild(sadaqa);
+
+// ================== تنظيم الكتب بدون تكرار ==================
+let booksContainer = document.querySelector(".card");
+if(booksContainer){
+
+booksContainer.innerHTML = `
+<h2 style="color:gold;">📚 كتب السلف - المكتبة الوقفية</h2>
+<a href="https://waqfeya.net/" target="_blank" style="color:#ffd700;display:block;margin:8px;">الدخول إلى المكتبة الوقفية</a>
+
+<hr style="margin:20px 0;border-color:gold;">
+
+<h2 style="color:gold;">📖 كتب الحديث الشريف</h2>
+<a href="https://waqfeya.net/book.php?bid=11810" target="_blank" style="color:#ffd700;display:block;margin:8px;">صحيح البخاري PDF</a>
+<a href="https://waqfeya.net/book.php?bid=11811" target="_blank" style="color:#ffd700;display:block;margin:8px;">صحيح مسلم PDF</a>
+<a href="https://waqfeya.net/book.php?bid=11449" target="_blank" style="color:#ffd700;display:block;margin:8px;">سنن ابن ماجه PDF</a>
+`;
+
+}
+</script>
 </body>
 </html>
