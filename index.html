@@ -346,6 +346,261 @@ window.onload=showWelcome;
 </script>
 
 <!-- ===== END ROYAL WAQF ===== -->
+<!-- ===== IMPERIAL ISLAMIC LEGEND UI ===== -->
 
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background:radial-gradient(circle at top,#111 0%,#000 70%);
+color:white;
+font-family:'Amiri',serif;
+overflow-x:hidden;
+}
+
+/* نجوم متحركة */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background-image:radial-gradient(white 1px, transparent 1px);
+background-size:60px 60px;
+opacity:0.05;
+animation:stars 80s linear infinite;
+z-index:-2;
+}
+@keyframes stars{
+from{transform:translateY(0);}
+to{transform:translateY(-600px);}
+}
+
+/* هلال ذهبي */
+.moon{
+position:fixed;
+top:-150px;
+left:-150px;
+width:500px;
+height:500px;
+background:radial-gradient(circle at 40% 40%,gold 0%,transparent 60%);
+border-radius:50%;
+opacity:0.08;
+animation:rotate 120s linear infinite;
+z-index:-1;
+}
+@keyframes rotate{
+from{transform:rotate(0);}
+to{transform:rotate(360deg);}
+}
+
+/* دعوة */
+.legend-dua{
+text-align:center;
+padding:80px 20px 40px;
+font-size:28px;
+color:gold;
+text-shadow:0 0 25px gold;
+}
+
+/* اسم الزائر */
+input{
+padding:8px;
+border-radius:10px;
+border:1px solid gold;
+background:black;
+color:gold;
+margin-top:10px;
+}
+button{
+padding:6px 18px;
+background:gold;
+border:none;
+border-radius:10px;
+margin-top:10px;
+cursor:pointer;
+}
+
+/* شبكة */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+padding:30px;
+}
+.card{
+background:linear-gradient(145deg,#1a1a1a,#000);
+border:1px solid gold;
+border-radius:20px;
+padding:25px;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 15px rgba(255,215,0,0.4);
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px gold;
+}
+.card h3{
+color:gold;
+margin-bottom:10px;
+}
+.content{
+display:none;
+line-height:2;
+font-size:15px;
+}
+.card.active .content{
+display:block;
+animation:fade 1s;
+}
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* مسبحة */
+.tasbeeh{
+text-align:center;
+margin:60px 0;
+}
+.counter{
+font-size:50px;
+color:gold;
+margin:20px 0;
+text-shadow:0 0 20px gold;
+}
+.tasbeeh button{
+font-size:18px;
+padding:10px 25px;
+}
+.reset{
+background:white !important;
+color:black;
+margin-left:10px;
+}
+
+/* رابط التبرع */
+.blood{
+text-align:center;
+margin:40px 0;
+}
+.blood a{
+background:gold;
+color:black;
+padding:12px 25px;
+border-radius:15px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 20px gold;
+}
+.blood a:hover{
+background:white;
+}
+</style>
+
+<div class="moon"></div>
+
+<div class="legend-dua" id="duaBox">
+﷽  
+اللهم اجعل هذا المكان نورًا وسكينةً لقلب زائره 🤍  
+<br>
+<input type="text" id="nameInput" placeholder="اكتب اسمك">
+<br>
+<button onclick="saveName()">دخول</button>
+</div>
+
+<div class="grid">
+
+<div class="card" onclick="toggle(this)">
+<h3>☀ أذكار الصباح</h3>
+<div class="content">
+أصبحنا وأصبح الملك لله رب العالمين...
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<h3>🌙 أذكار المساء</h3>
+<div class="content">
+أمسينا وأمسى الملك لله...
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<h3>🛌 أذكار النوم</h3>
+<div class="content">
+باسمك ربي وضعت جنبي وبك أرفعه...
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<h3>🚪 دعاء الخروج</h3>
+<div class="content">
+بسم الله توكلت على الله ولا حول ولا قوة إلا بالله.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<h3>🌙 فضل قيام الليل</h3>
+<div class="content">
+قال ﷺ: أفضل الصلاة بعد الفريضة صلاة الليل.
+</div>
+</div>
+
+</div>
+
+<div class="tasbeeh">
+<h2 style="color:gold;">📿 المسبحة الملكية</h2>
+<div class="counter" id="count">0</div>
+<button onclick="increase()">سبحان الله</button>
+<button class="reset" onclick="reset()">تصفير</button>
+</div>
+
+<div class="blood">
+<a href="http://ahyaaha.com/client/" target="_blank">
+🩸 التبرع بالدم صدقة عظيمة
+</a>
+</div>
+
+<script>
+function toggle(el){
+el.classList.toggle("active");
+}
+
+function increase(){
+let c=localStorage.getItem("tasbeeh")||0;
+c++;
+localStorage.setItem("tasbeeh",c);
+document.getElementById("count").innerText=c;
+}
+
+function reset(){
+localStorage.setItem("tasbeeh",0);
+document.getElementById("count").innerText=0;
+}
+
+window.onload=function(){
+let saved=localStorage.getItem("tasbeeh")||0;
+document.getElementById("count").innerText=saved;
+
+let name=localStorage.getItem("visitorName");
+if(name){
+document.getElementById("duaBox").innerHTML=
+"﷽<br>مرحبًا "+name+" 🤍<br>اللهم اجعل له نصيبًا من هذا النور.";
+}
+}
+
+function saveName(){
+let n=document.getElementById("nameInput").value;
+if(n){
+localStorage.setItem("visitorName",n);
+location.reload();
+}
+}
+</script>
+
+<!-- ===== END IMPERIAL UI ===== -->
 </body>
 </html>
