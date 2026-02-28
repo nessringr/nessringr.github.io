@@ -160,6 +160,132 @@ if(id){document.getElementById(id).style.display='block';window.scrollTo(0,0);}
 <div class="footer">
 🤍 صدقة جارية عن نسرين ووالديها وأحبتها 🤍
 </div>
+<style>
+.empire-waqf{
+background:radial-gradient(circle at top,#0b0b0b 0%,#000 80%);
+padding:70px 20px;
+margin-top:70px;
+position:relative;
+overflow:hidden;
+color:white;
+font-family:'Amiri',serif;
+border-top:3px solid gold;
+}
 
+.big-moon{
+position:absolute;
+top:-60px;
+right:-60px;
+width:300px;
+height:300px;
+background:radial-gradient(circle at 30% 30%, gold 0%, transparent 60%);
+border-radius:50%;
+opacity:0.08;
+animation:moonRotate 60s linear infinite;
+}
+
+@keyframes moonRotate{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+.shine-title{
+text-align:center;
+font-size:34px;
+color:gold;
+margin-bottom:30px;
+background:linear-gradient(90deg,gold,white,gold);
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+0%{background-position:0%;}
+100%{background-position:200%;}
+}
+
+.welcome-box{
+text-align:center;
+margin-bottom:40px;
+padding:25px;
+border:1px solid gold;
+border-radius:20px;
+background:#111;
+box-shadow:0 0 25px gold;
+}
+
+.name-input{
+padding:10px;
+border-radius:10px;
+border:1px solid gold;
+background:black;
+color:gold;
+margin-top:10px;
+}
+
+.save-btn{
+padding:8px 18px;
+background:gold;
+border:none;
+border-radius:10px;
+margin-top:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.dua-text{
+margin-top:15px;
+color:gold;
+line-height:2;
+}
+
+</style>
+
+<div class="empire-waqf">
+<div class="big-moon"></div>
+
+<div class="shine-title">
+🌙 وقف نسرين – صدقة جارية عن نسرين ووالديها وأحبتها 🤍
+</div>
+
+<div class="welcome-box" id="welcomeBox">
+<div id="welcomeContent">
+أدخل اسمك ليُكتب لك دعاء خاص 🤍<br>
+<input type="text" id="visitorName" class="name-input" placeholder="اكتب اسمك هنا">
+<br>
+<button class="save-btn" onclick="saveName()">دخول</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function saveName(){
+var name=document.getElementById("visitorName").value;
+if(name.trim()!=""){
+localStorage.setItem("visitorName",name);
+showWelcome();
+}
+}
+
+function showWelcome(){
+var name=localStorage.getItem("visitorName");
+if(name){
+document.getElementById("welcomeContent").innerHTML=
+"<h2 style='color:gold'>مرحباً "+name+" 🤍</h2>"+
+"<div class='dua-text'>"+
+"اللهم اغفر لـ "+name+" وارحمه ووفقه لكل خير 🤲<br>"+
+"اللهم اجعل له نصيباً من هذا الوقف المبارك.<br>"+
+"اللهم ارزقه سعادة لا تزول وقلباً مطمئناً."
++"</div>";
+}
+}
+
+window.onload=showWelcome;
+</script>
+
+</div>
 </body>
 </html>
