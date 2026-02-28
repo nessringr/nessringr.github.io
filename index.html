@@ -450,66 +450,64 @@ document.addEventListener("DOMContentLoaded", function() {
     onclick="window.open('http://ahyaaha.com/client','_blank')">
     زيارة منصة التبرع بالدم
   </button>
-</div>
 
-<!-- ====== قسم التلاوات ====== -->
-<style>
-.quran-section {
-  margin: 60px 20px;
-  padding: 30px;
-  border-radius: 25px;
-  text-align: center;
-  background: linear-gradient(145deg,#001a14,#002e23);
-  border: 2px solid #0f5132;
-  box-shadow: 0 0 25px rgba(0,128,0,0.5);
-}
+<!-- 🌙 تلاوات عطرة - الشيخ محمد صديق المنشاوي -->
+<div style="max-width:700px;margin:40px auto;padding:30px;
+background:linear-gradient(145deg,#063,#021);
+border-radius:25px;
+box-shadow:0 0 40px rgba(255,215,0,0.3);
+border:1px solid rgba(255,215,0,0.4);
+color:#fff;text-align:center;">
 
-.quran-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #7fffd4;
-  margin-bottom: 20px;
-}
+<h2 style="color:#FFD700;font-size:26px;margin-bottom:25px;">
+🎧 تلاوات عطرة – الشيخ محمد صديق المنشاوي
+</h2>
 
-.audio-box {
-  margin-top: 20px;
-}
+<!-- الفاتحة -->
+<p>سورة الفاتحة</p>
+<audio controls style="width:100%;margin-bottom:20px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/001.mp3" type="audio/mpeg">
+</audio>
 
-audio {
-  width: 100%;
-  margin-top: 10px;
-}
-</style>
+<!-- البقرة (أول 10 آيات) -->
+<p>سورة البقرة (بدايتها)</p>
+<audio controls style="width:100%;margin-bottom:20px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/002.mp3" type="audio/mpeg">
+</audio>
 
-<div class="quran-section">
-  <div class="quran-title">
-    🎧 تلاوات عطرة – الشيخ محمد صديق المنشاوي
-  </div>
+<!-- يس -->
+<p>سورة يس</p>
+<audio controls style="width:100%;margin-bottom:20px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/036.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="audio-box">
-    سورة الفاتحة
-    <audio controls>
-      <source src="https://server8.mp3quran.net/minsh/001.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+<!-- الرحمن -->
+<p>سورة الرحمن</p>
+<audio controls style="width:100%;margin-bottom:20px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/055.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="audio-box">
-    سورة الرحمن
-    <audio controls>
-      <source src="https://server8.mp3quran.net/minsh/055.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+<!-- الواقعة -->
+<p>سورة الواقعة</p>
+<audio controls style="width:100%;margin-bottom:20px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/056.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="audio-box">
-    سورة يس
-    <audio controls>
-      <source src="https://server8.mp3quran.net/minsh/036.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+<!-- الملك -->
+<p>سورة الملك</p>
+<audio controls style="width:100%;margin-bottom:20px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/067.mp3" type="audio/mpeg">
+</audio>
+
+<!-- الإخلاص -->
+<p>سورة الإخلاص</p>
+<audio controls style="width:100%;margin-bottom:10px;">
+<source src="https://download.quranicaudio.com/quran/minshawi_murattal/112.mp3" type="audio/mpeg">
+</audio>
+
 </div>
 
 <script>
-// إيقاف أي تلاوة أخرى عند تشغيل واحدة
 const audios = document.querySelectorAll("audio");
 audios.forEach(audio => {
   audio.addEventListener("play", () => {
