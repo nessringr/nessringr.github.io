@@ -652,75 +652,87 @@ s.remove();
 },1000);
 }
 }
+</script>
+  <!-- 🌙 الأيقونات الجانبية -->
 
-/* 🌟 أسماء الله الحسنى الكاملة */
+<div style="position:fixed;left:10px;top:40%;z-index:999;display:flex;flex-direction:column;gap:15px;">
+
+<div onclick="showAllahNames()" style="background:linear-gradient(145deg,#014,#026);color:white;width:70px;height:70px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 20px gold;">
+✨
+<span style="font-size:9px;">أسماء الله</span>
+</div>
+
+<div onclick="showTajweed()" style="background:linear-gradient(145deg,#014,#026);color:white;width:70px;height:70px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 20px gold;">
+📖
+<span style="font-size:9px;">التجويد</span>
+</div>
+
+</div>
+
+<!-- Popup -->
+<div id="megaPopup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;">
+<div style="background:#012;margin:5% auto;padding:25px;width:95%;max-width:600px;border-radius:20px;color:white;max-height:80%;overflow:auto;box-shadow:0 0 40px gold;">
+<span onclick="document.getElementById('megaPopup').style.display='none'" style="float:right;cursor:pointer;color:red;">✖</span>
+<div id="megaBody"></div>
+</div>
+</div>
+
+<script>
+
+/* ⭐ نجوم */
+function explodeStars(){
+for(let i=0;i<20;i++){
+let s=document.createElement("div");
+s.style.position="fixed";
+s.style.width="6px";
+s.style.height="6px";
+s.style.background="gold";
+s.style.borderRadius="50%";
+s.style.left=Math.random()*window.innerWidth+"px";
+s.style.top=Math.random()*window.innerHeight+"px";
+s.style.zIndex="9999";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),800);
+}
+}
+
+/* 🌟 أسماء الله */
 function showAllahNames(){
 explodeStars();
 
-var content = "<h3 style='color:gold;text-align:center;'>🌟 أسماء الله الحسنى</h3>";
-content += "<div style='max-height:400px;overflow:auto;text-align:right;'>";
+var content = "<h3 style='color:gold;text-align:center;'>أسماء الله الحسنى</h3>";
+content += "<div style='text-align:right;'>";
 
-var names = [
-"الله","الرحمن","الرحيم","الملك","القدوس","السلام","المؤمن","المهيمن","العزيز","الجبار","المتكبر",
-"الخالق","البارئ","المصور","الغفار","القهار","الوهاب","الرزاق","الفتاح","العليم",
-"القابض","الباسط","الخافض","الرافع","المعز","المذل","السميع","البصير","الحكم","العدل",
-"اللطيف","الخبير","الحليم","العظيم","الغفور","الشكور","العلي","الكبير","الحفيظ","المقيت",
-"الحسيب","الجليل","الكريم","الرقيب","المجيب","الواسع","الحكيم","الودود","المجيد","الباعث",
-"الشهيد","الحق","الوكيل","القوي","المتين","الولي","الحميد","المحصي","المبدئ","المعيد",
-"المحيي","المميت","الحي","القيوم","الواجد","الماجد","الواحد","الأحد","الصمد","القادر",
-"المقتدر","المقدم","المؤخر","الأول","الآخر","الظاهر","الباطن","الوالي","المتعالي","البر",
-"التواب","المنتقم","العفو","الرؤوف","مالك الملك","ذو الجلال والإكرام","المقسط","الجامع","الغني","المغني",
-"المانع","الضار","النافع","النور","الهادي","البديع","الباقي","الوارث","الرشيد","الصبور"
-];
+var names = ["الله","الرحمن","الرحيم","الملك","القدوس","السلام","المؤمن","المهيمن","العزيز","الجبار","المتكبر","الخالق","البارئ","المصور","الغفار","القهار","الوهاب","الرزاق","الفتاح","العليم","السميع","البصير","الحكيم","اللطيف","الخبير","الحليم","العظيم","الغفور","الشكور","العلي","الكبير","الحفيظ","الكريم","الرقيب","المجيب","الواسع","الودود","المجيد","الحق","الوكيل","القوي","المتين","الولي","الحميد","المحيي","المميت","الحي","القيوم","الواحد","الأحد","الصمد","القادر","الأول","الآخر","الظاهر","الباطن","البر","التواب","العفو","الرؤوف","النور","الهادي","البديع","الباقي","الوارث","الرشيد","الصبور"];
 
 for(var i=0;i<names.length;i++){
 content += "<p><b>"+names[i]+"</b></p>";
 }
 
-content += "<hr>";
-content += "<p style='color:#ccc;'>🤲 دعاء: اللهم إنا نسألك بأسمائك الحسنى وصفاتك العلى أن تغفر لنا وترحمنا وتهدينا.</p>";
+content += "<hr><p>🤲 اللهم إنا نسألك بأسمائك الحسنى أن تغفر لنا وترحمنا.</p>";
 content += "</div>";
 
 document.getElementById("megaBody").innerHTML = content;
 document.getElementById("megaPopup").style.display = "block";
 }
 
-/* 📖 أحكام التجويد المعمقة */
+/* 📖 التجويد */
 function showTajweed(){
 explodeStars();
 
-var content = "<h3 style='color:gold;text-align:center;'>📖 أحكام التجويد</h3>";
-content += "<div style='max-height:400px;overflow:auto;text-align:right;'>";
+var content = "<h3 style='color:gold;text-align:center;'>أحكام التجويد</h3>";
+content += "<div style='text-align:right;'>";
 
-content += "<h4>1️⃣ أحكام النون الساكنة والتنوين</h4>";
-content += "<ul>";
-content += "<li><b>الإظهار:</b> إخراج النون بوضوح دون غنة (ء هـ ع ح غ خ)</li>";
-content += "<li><b>الإدغام:</b> إدخال النون في الحرف بعدها (يرملون)</li>";
-content += "<li><b>الإخفاء:</b> إخفاء النون مع غنة عند 15 حرفاً</li>";
-content += "<li><b>الإقلاب:</b> قلب النون ميماً عند الباء</li>";
-content += "</ul>";
+content += "<h4>أحكام النون الساكنة والتنوين</h4>";
+content += "<ul><li>الإظهار</li><li>الإدغام</li><li>الإخفاء</li><li>الإقلاب</li></ul>";
 
-content += "<h4>2️⃣ أحكام الميم الساكنة</h4>";
-content += "<ul>";
-content += "<li>إظهار شفوي</li>";
-content += "<li>إدغام شفوي</li>";
-content += "<li>إخفاء شفوي</li>";
-content += "</ul>";
+content += "<h4>أحكام الميم الساكنة</h4>";
+content += "<ul><li>إظهار شفوي</li><li>إدغام شفوي</li><li>إخفاء شفوي</li></ul>";
 
-content += "<h4>3️⃣ المدود</h4>";
-content += "<ul>";
-content += "<li>المد الطبيعي (حركتان)</li>";
-content += "<li>المد المتصل</li>";
-content += "<li>المد المنفصل</li>";
-content += "<li>مد العارض للسكون</li>";
-content += "<li>مد البدل</li>";
-content += "</ul>";
+content += "<h4>المدود</h4>";
+content += "<ul><li>المد الطبيعي</li><li>المد المتصل</li><li>المد المنفصل</li></ul>";
 
-content += "<h4>4️⃣ القلقلة</h4>";
-content += "<p>حروفها: قطب جد — وتكون عند السكون.</p>";
-
-content += "<h4>5️⃣ التفخيم والترقيق</h4>";
-content += "<p>حروف التفخيم: خص ضغط قظ</p>";
+content += "<h4>القلقلة</h4><p>قطب جد</p>";
 
 content += "</div>";
 
