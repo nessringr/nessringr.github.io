@@ -1612,65 +1612,6 @@ window.addEventListener("DOMContentLoaded", function(){
 
  if(window.Telegram && Telegram.WebApp){
    Telegram.WebApp.ready();
-   let user = Telegram.WebApp.initDataUnsafe.user;
-   if(user){
-     let box = document.createElement("div");
-     box.style.color="gold";
-     box.style.margin="15px";
-     box.style.fontSize="18px";
-     box.innerHTML =
-     "🌿 مرحبًا بك يا <b>"+user.first_name+"</b><br>نسأل الله أن يجعل لك نورًا في قلبك";
-     document.body.insertBefore(box, document.body.children[1]);
-   }
- }
-
- // ======== تصحيح نص الدعاء بعد البسملة =========
- let elements = document.querySelectorAll("*");
- elements.forEach(el=>{
-   if(el.innerText.trim() === "اللهم اجعل هذا المكان نورا وسكينة"){
-     el.innerHTML = "اللهم اجعل هذا الموقع نورًا وسكينةً لقلب زائره";
-   }
- });
-
- // ======== إضافة دعاء الصدقة مرة واحدة فقط =========
- if(!document.getElementById("sadaqaBox")){
-   let s = document.createElement("div");
-   s.id="sadaqaBox";
-   s.style.color="gold";
-   s.style.margin="20px";
-   s.innerHTML =
-   "( صدقة جارية لنسرين ووالديها وأحبتها، جعله الله نورًا لنا ولكم وذخرًا وصدقةً تنفعنا في قبورنا )";
-   document.body.appendChild(s);
- }
-
-});
-
-</script>
-<script>
-window.addEventListener("DOMContentLoaded", function(){
-
-  const keywords = [
-    "كتب السلف",
-    "المكتبة الوقفية",
-    "صحيح البخاري",
-    "صحيح مسلم",
-    "سنن ابن ماجه"
-  ];
-
-  document.querySelectorAll("h1,h2,h3,a,div").forEach(el=>{
-    if(keywords.some(word => el.innerText.includes(word))){
-      let card = el.closest(".card") || el.parentElement;
-      if(card){
-        card.remove();
-      }
-    }
-  });
-});
-</script>
-<script>
-window.onerror = function(){
-  return true;
-};
-</script>    
+       
 </body>
 </html>
