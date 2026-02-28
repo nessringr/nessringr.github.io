@@ -684,5 +684,246 @@ grid.appendChild(bloodDiv);
 </script>
 
 <!-- ===== END BLOOD IMPERIAL ===== -->
+<!-- ===== NESSRIN IMPERIAL FINAL VERSION ===== -->
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background:radial-gradient(circle at top,#0c1220 0%,#000 75%);
+color:white;
+font-family:'Amiri',serif;
+}
+
+/* اخفاء الفوضى القديمة */
+.section,.footer,.grid,.legend-card,.blood-card,.tasbeeh{
+display:none !important;
+}
+
+/* الحاوية الرئيسية */
+.main-container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+/* بسم الله */
+.basmala{
+text-align:center;
+color:gold;
+font-size:38px;
+text-shadow:0 0 25px gold;
+margin-bottom:10px;
+}
+
+.sadaqa{
+text-align:center;
+color:gold;
+font-size:20px;
+margin-bottom:40px;
+}
+
+/* بطاقة ترحيب */
+.welcome-box{
+background:linear-gradient(145deg,#111,#000);
+border:2px solid gold;
+border-radius:25px;
+padding:30px;
+text-align:center;
+margin-bottom:40px;
+box-shadow:0 0 30px rgba(255,215,0,0.4);
+}
+
+.welcome-box input{
+padding:8px;
+border-radius:12px;
+border:1px solid gold;
+background:black;
+color:gold;
+margin-top:10px;
+}
+
+.welcome-box button{
+padding:8px 20px;
+background:gold;
+border:none;
+border-radius:12px;
+margin-top:10px;
+cursor:pointer;
+}
+
+/* البطاقات */
+.card{
+background:linear-gradient(145deg,#111,#000);
+border:2px solid gold;
+border-radius:25px;
+padding:25px;
+margin-bottom:25px;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,215,0,0.4);
+transition:0.4s;
+}
+
+.card:hover{
+box-shadow:0 0 35px gold;
+transform:translateY(-5px);
+}
+
+.card-title{
+color:gold;
+font-size:22px;
+text-align:center;
+}
+
+.card-content{
+display:none;
+margin-top:15px;
+line-height:2;
+}
+
+.card.active .card-content{
+display:block;
+animation:fade 0.6s ease-in-out;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* بطاقة التبرع */
+.blood-card{
+background:linear-gradient(145deg,#b30000,#5a0000);
+border:2px solid gold;
+border-radius:25px;
+padding:35px;
+text-align:center;
+box-shadow:0 0 40px rgba(255,0,0,0.6);
+margin-top:40px;
+}
+
+.blood-card h2{
+color:white;
+}
+
+.blood-card a{
+display:inline-block;
+margin-top:20px;
+background:gold;
+color:black;
+padding:12px 30px;
+border-radius:15px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 20px gold;
+transition:0.3s;
+}
+
+.blood-card a:hover{
+background:white;
+}
+</style>
+
+<div class="main-container">
+
+<div class="basmala">﷽</div>
+<div class="sadaqa">صدقة جارية من نسرين لوالديها وأحبتها ولها 🤍</div>
+
+<div class="welcome-box" id="welcomeBox">
+<div id="welcomeText">اكتب اسمك ليُدعى لك 🤍</div>
+<input type="text" id="nameInput" placeholder="اسمك هنا">
+<br>
+<button onclick="saveName()">دخول</button>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">☀ أذكار الصباح</div>
+<div class="card-content">
+أصبحنا وأصبح الملك لله رب العالمين... <br>
+اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور.
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">🌙 أذكار المساء</div>
+<div class="card-content">
+أمسينا وأمسى الملك لله رب العالمين... <br>
+اللهم إني أسألك خير هذه الليلة وخير ما بعدها.
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">🛌 أذكار النوم</div>
+<div class="card-content">
+باسمك ربي وضعت جنبي وبك أرفعه... <br>
+اللهم قني عذابك يوم تبعث عبادك.
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">🚪 دعاء الخروج</div>
+<div class="card-content">
+بسم الله توكلت على الله ولا حول ولا قوة إلا بالله.
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<div class="card-title">🌙 فضل قيام الليل</div>
+<div class="card-content">
+قال ﷺ: أفضل الصلاة بعد الفريضة صلاة الليل.
+</div>
+</div>
+
+<div class="blood-card">
+<h2>🩸 صدقة التبرع بالدم</h2>
+قال تعالى: "ومن أحياها فكأنما أحيا الناس جميعًا"
+<br>
+<a href="http://ahyaaha.com/client/" target="_blank">
+اضغط للتبرع الآن
+</a>
+</div>
+
+</div>
+
+<script>
+function toggleCard(el){
+el.classList.toggle("active");
+}
+
+/* استقبال اسم من تيليغرام */
+function getTelegramName(){
+if(window.Telegram && Telegram.WebApp){
+let user=Telegram.WebApp.initDataUnsafe?.user;
+if(user){
+return user.first_name || "";
+}
+}
+return null;
+}
+
+function saveName(){
+let name=document.getElementById("nameInput").value;
+if(name){
+localStorage.setItem("visitorName",name);
+location.reload();
+}
+}
+
+window.onload=function(){
+let tgName=getTelegramName();
+if(tgName){
+localStorage.setItem("visitorName",tgName);
+}
+
+let name=localStorage.getItem("visitorName");
+if(name){
+document.getElementById("welcomeBox").innerHTML=
+"مرحبًا "+name+" 🤍<br>اللهم اجعل له نصيبًا من النور والسكينة والطمأنينة.";
+}
+}
+</script>
+
+<!-- ===== END NESSRIN IMPERIAL FINAL ===== -->
 </body>
 </html>
