@@ -1190,5 +1190,70 @@ document.getElementById("welcomeMsg").innerHTML =
 </script>
 
 <!-- ===== END ULTIMATE ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+/* ===== 1. حذف أي بسم الله مكررة ===== */
+let basmalaElements = document.querySelectorAll(".basmala, .bismillah, h1");
+let basmalaFound = false;
+
+basmalaElements.forEach(el => {
+    if(el.innerText.includes("بسم الله الرحمن الرحيم")){
+        if(!basmalaFound){
+            basmalaFound = true;
+        } else {
+            el.remove();
+        }
+    }
+});
+
+/* ===== 2. حذف أي صدقة جارية مكررة ===== */
+let sadaqaElements = document.querySelectorAll("div, p");
+let sadaqaFound = false;
+
+sadaqaElements.forEach(el => {
+    if(el.innerText.includes("صدقة جارية")){
+        if(!sadaqaFound){
+            sadaqaFound = true;
+        } else {
+            el.remove();
+        }
+    }
+});
+
+/* ===== 3. حذف أي ترحيب مكرر ===== */
+let welcomeElements = document.querySelectorAll("#welcomeMsg, .welcome");
+let welcomeFound = false;
+
+welcomeElements.forEach(el => {
+    if(!welcomeFound){
+        welcomeFound = true;
+    } else {
+        el.remove();
+    }
+});
+
+/* ===== 4. ضمان وجود العناصر مرة واحدة فقط في الأعلى ===== */
+let container = document.querySelector(".clean-container");
+
+if(container){
+
+    container.innerHTML = `
+    <div class="basmala">بسم الله الرحمن الرحيم</div>
+
+    <div class="sadaqa">
+    هذا العمل صدقة جارية عن نسرين واهلها وأحبتها 🤍
+    </div>
+
+    <div id="welcomeMsg" class="welcome">
+    مرحبًا بك 🤍<br>
+    نسأل الله أن يكتب لك الأجر والبركة.
+    </div>
+    ` + container.innerHTML;
+
+}
+
+});
+</script>
 </body>
 </html>
