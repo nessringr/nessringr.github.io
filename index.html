@@ -2209,6 +2209,27 @@ document.addEventListener("DOMContentLoaded", function () {
   cursor: pointer;
   font-weight: bold;
 }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  // البحث عن كل العناصر في الصفحة
+  var elements = document.body.querySelectorAll("*");
+
+  elements.forEach(function(el) {
+
+    // نتأكد أن العنصر ليس داخل icon-box
+    if (!el.closest(".icon-box")) {
+
+      // إذا كان النص هو "أذكار الصباح"
+      if (el.innerText.trim() === "أذكار الصباح") {
+        el.remove();
+      }
+
+    }
+
+  });
+
+});
+</script>
 </body>
 </html>
