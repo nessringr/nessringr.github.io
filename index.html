@@ -1712,5 +1712,66 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+// ====== تصميم موحد للأيقونات ======
+function createButton(text, link=null, action=null){
+  let box = document.createElement("div");
+  box.style.margin="15px";
+  box.style.textAlign="center";
+
+  let btn = document.createElement("a");
+  btn.innerHTML=text;
+  btn.style.display="inline-block";
+  btn.style.padding="15px 25px";
+  btn.style.background="linear-gradient(135deg,#e6c35c,#b9932f)";
+  btn.style.color="#000";
+  btn.style.fontWeight="bold";
+  btn.style.borderRadius="20px";
+  btn.style.textDecoration="none";
+  btn.style.boxShadow="0 5px 15px rgba(0,0,0,0.4)";
+  btn.style.cursor="pointer";
+
+  if(link){
+    btn.href=link;
+    btn.target="_blank";
+  }
+
+  if(action){
+    btn.onclick=action;
+  }
+
+  box.appendChild(btn);
+  document.body.appendChild(box);
+}
+
+// ====== 1 كافل اليتيم ======
+createButton("👶 كافل اليتيم", "https://kafilyatim.dz/");
+
+// ====== 2 رسالة ملهمة ======
+let messages = [
+"لا تيأس… الله يدبر لك الخير 🤍",
+"رب دعوة غيرت قدرك وأنت لا تعلم ✨",
+"اصبر فالعوض جميل 🌿",
+"كل تأخير فيه حكمة 🕊️"
+];
+
+createButton("💌 رسالة ملهمة", null, function(){
+  let random = messages[Math.floor(Math.random()*messages.length)];
+  alert(random);
+});
+
+// ====== 3 عداد حسنات ======
+let hasanat = localStorage.getItem("hasanat") || 0;
+
+createButton("✨ عداد حسنات ("+hasanat+")", null, function(){
+  hasanat++;
+  localStorage.setItem("hasanat",hasanat);
+  this.innerHTML="✨ عداد حسنات ("+hasanat+")";
+});
+
+});
+</script>
 </body>
 </html>
