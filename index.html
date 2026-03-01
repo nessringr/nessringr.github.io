@@ -1687,5 +1687,30 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.prepend(welcomeBox);
 });
 </script> 
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  let fiqhBox = document.createElement("div");
+  fiqhBox.style.margin = "25px";
+  fiqhBox.style.textAlign = "center";
+
+  let link = document.createElement("a");
+  link.href = "https://dorar.net/";
+  link.target = "_blank";
+  link.style.display = "inline-block";
+  link.style.padding = "15px 25px";
+  link.style.background = "linear-gradient(135deg,#e6c35c,#b9932f)";
+  link.style.color = "#000";
+  link.style.fontWeight = "bold";
+  link.style.borderRadius = "20px";
+  link.style.textDecoration = "none";
+  link.style.boxShadow = "0 5px 15px rgba(0,0,0,0.4)";
+  link.innerHTML = "📖 تفقّه في دينك";
+
+  fiqhBox.appendChild(link);
+  document.body.appendChild(fiqhBox);
+
+});
+</script>
 </body>
 </html>
