@@ -2247,5 +2247,31 @@ document.addEventListener("DOMContentLoaded", function () {
   grid.appendChild(card);
 });
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  // إنشاء العنصر كرابط مباشر
+  var link = document.createElement("a");
+  link.href = "https://kafilyatim.dz/";
+  link.target = "_blank";
+  link.innerHTML = "🤲<br>كافل اليتيم";
+
+  // تنسيقه ليبدو كأيقونة
+  link.style.display = "inline-block";
+  link.style.background = "#111";
+  link.style.color = "gold";
+  link.style.padding = "20px";
+  link.style.margin = "20px";
+  link.style.borderRadius = "15px";
+  link.style.textAlign = "center";
+  link.style.textDecoration = "none";
+  link.style.cursor = "pointer";
+  link.style.fontSize = "18px";
+
+  // إضافته في نهاية الصفحة
+  document.body.appendChild(link);
+
+});
+</script>
 </body>
 </html>
