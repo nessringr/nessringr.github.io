@@ -1966,5 +1966,120 @@ btn.onclick=function(){
 });
     
 </script>
+<!-- ===== أيقونة الورد اليومي ===== -->
+<style>
+#dailyWirdBtn{
+position:fixed;
+bottom:20px;
+left:20px;
+background:linear-gradient(135deg,#0a5f3c,#0f8a5f);
+color:white;
+border:none;
+padding:14px 16px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+transition:0.3s;
+z-index:9999;
+}
+#dailyWirdBtn:hover{
+transform:scale(1.1);
+}
+
+#wirdOverlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:flex;
+align-items:center;
+justify-content:center;
+visibility:hidden;
+opacity:0;
+transition:0.4s;
+z-index:9998;
+}
+
+#wirdPopup{
+background:white;
+color:#0a3d2f;
+padding:25px;
+width:90%;
+max-width:400px;
+border-radius:20px;
+text-align:center;
+transform:scale(0.8);
+transition:0.4s;
+max-height:80vh;
+overflow-y:auto;
+}
+
+#wirdPopup h2{
+margin-bottom:15px;
+}
+
+#wirdPopup button{
+margin-top:15px;
+padding:8px 15px;
+border:none;
+background:#0f8a5f;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+
+<button id="dailyWirdBtn">🌿</button>
+
+<div id="wirdOverlay">
+  <div id="wirdPopup">
+    <h2>وردك اليومي 🌿</h2>
+    <p>هل تلوت وردك اليوم ؟؟</p>
+    <p>هل ذكرت الله ؟</p>
+    <hr>
+    <p>
+    سبحان الله ×3<br>
+    استغفر الله العظيم وأتوب إليه ×3<br>
+    الحمد لله ×3<br>
+    الله أكبر ×3<br>
+    لا حول ولا قوة إلا بالله
+    </p>
+    <hr>
+    <p>سورة الفلق:</p>
+    <p>
+    قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ<br>
+    مِن شَرِّ مَا خَلَقَ<br>
+    وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ<br>
+    وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ<br>
+    وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
+    </p>
+    <p style="font-size:13px;margin-top:10px;">
+    قال ﷺ: "قل هو الله أحد تعدل ثلث القرآن"
+    </p>
+    <p style="margin-top:15px;">إذا أكملت صلِّ على النبي 💓</p>
+    <button onclick="closeWird()">إغلاق</button>
+  </div>
+</div>
+
+<script>
+const wirdBtn=document.getElementById("dailyWirdBtn");
+const wirdOverlay=document.getElementById("wirdOverlay");
+const wirdPopup=document.getElementById("wirdPopup");
+
+wirdBtn.onclick=function(){
+wirdOverlay.style.visibility="visible";
+wirdOverlay.style.opacity="1";
+wirdPopup.style.transform="scale(1)";
+}
+
+function closeWird(){
+wirdOverlay.style.visibility="hidden";
+wirdOverlay.style.opacity="0";
+wirdPopup.style.transform="scale(0.8)";
+}
+</script>
 </body>
 </html>
