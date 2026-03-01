@@ -2161,6 +2161,98 @@ document.addEventListener("DOMContentLoaded", function () {
     loginBtn.remove();
   }
 });
-</script>      
+</script>  
+    <style>
+#azkarModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  overflow-y: auto;
+  z-index: 9999;
+  padding: 20px;
+}
+
+#azkarContent {
+  background: #111;
+  color: #f5d76e;
+  padding: 25px;
+  border-radius: 20px;
+  line-height: 2;
+  font-size: 16px;
+  max-width: 800px;
+  margin: 40px auto;
+  white-space: pre-line;
+}
+
+#closeAzkar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: gold;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+</style>
+
+<div id="azkarModal">
+  <button id="closeAzkar">إغلاق ✕</button>
+  <div id="azkarContent">
+💎🌸•┈┈┈••●◆❁أذكارُ الصَّـبـاح❁◆●••┈┈┈•
+
+"الحَمدُ للَّه وَحدهُ، والصَّلاة والسَّلامُ على مَن لا نَبيَّ بَعدهُ."
+
+أَعُوذُ بِاللَّهِ مِنْ الشَّيْطَانِ الرَّجِيمِ
+
+﴿اللَّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ...﴾
+
+بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيم
+﴿قُلْ هُوَ ٱللَّهُ أَحَدٌ﴾ (ثلاث مرات)
+
+﴿قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ﴾ (ثلاث مرات)
+
+﴿قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ﴾ (ثلاث مرات)
+
+أَصْبَحْنا وَأَصْبَحَ المُـلْكُ للَّه...
+
+اللّهـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ...
+
+رَضيـتُ بِاللَّه رَبَّـاً...
+
+اللّهُـمَّ إِنِّـي أَصْبَـحْتُ أُشْـهِدُك... (أربع مرات)
+
+اللّهُـمَّ ما أَصْبَـحَ بي مِـنْ نِعْمَةٍ...
+
+حَسْبِـيَ اللَّه لا إلهَ إلاّ هُوَ... (سبع مرات)
+
+بِسـمِ اللَّه الذي لا يَضُـرُّ... (ثلاث مرات)
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  // البحث عن أي عنصر يحتوي كلمة أذكار
+  const links = document.querySelectorAll("a, div, button");
+
+  links.forEach(el => {
+    if(el.innerText.includes("أذكار")){
+      el.style.cursor = "pointer";
+      el.addEventListener("click", function(e){
+        e.preventDefault();
+        document.getElementById("azkarModal").style.display = "block";
+      });
+    }
+  });
+
+  document.getElementById("closeAzkar").onclick = function(){
+    document.getElementById("azkarModal").style.display = "none";
+  };
+
+});
+</script>
 </body>
 </html>
