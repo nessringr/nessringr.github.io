@@ -2146,5 +2146,22 @@ body{
   margin-bottom:8px;
 }
 </
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // حذف كلمة Grnessrinbot
+  const englishTitle = document.querySelector("h1, .title, .logo-text");
+  if (englishTitle && englishTitle.innerText.includes("Grnessrinbot")) {
+    englishTitle.remove();
+  }
+
+  // حذف زر دخول
+  const loginBtn = document.querySelector("button, .btn, .login");
+  if (loginBtn && loginBtn.innerText.includes("دخول")) {
+    loginBtn.remove();
+  }
+
+});
+</script>      
 </body>
 </html>
