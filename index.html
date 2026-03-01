@@ -2231,5 +2231,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var grid = document.querySelector(".grid");
+  if (!grid) return;
+
+  var card = document.createElement("div");
+  card.className = "card";
+  card.style.cursor = "pointer";
+  card.innerHTML = "<span style='font-size:30px'>📚</span><p>تفقه في دينك</p>";
+
+  card.onclick = function () {
+    window.open("https://dorar.net/", "_blank");
+  };
+
+  grid.appendChild(card);
+
+});
+</script>
 </body>
 </html>
