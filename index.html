@@ -1773,5 +1773,76 @@ createButton("✨ عداد حسنات ("+hasanat+")", null, function(){
 
 });
 </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+// ===== إنشاء نافذة احترافية =====
+let overlay = document.createElement("div");
+overlay.style.position="fixed";
+overlay.style.top="0";
+overlay.style.left="0";
+overlay.style.width="100%";
+overlay.style.height="100%";
+overlay.style.background="rgba(0,0,0,0.6)";
+overlay.style.display="flex";
+overlay.style.alignItems="center";
+overlay.style.justifyContent="center";
+overlay.style.opacity="0";
+overlay.style.visibility="hidden";
+overlay.style.transition="0.3s";
+overlay.style.zIndex="9999";
+
+let popup = document.createElement("div");
+popup.style.background="linear-gradient(135deg,#e6c35c,#b9932f)";
+popup.style.padding="25px";
+popup.style.borderRadius="20px";
+popup.style.textAlign="center";
+popup.style.color="#000";
+popup.style.fontWeight="bold";
+popup.style.maxWidth="300px";
+popup.style.boxShadow="0 10px 30px rgba(0,0,0,0.5)";
+popup.style.transform="scale(0.8)";
+popup.style.transition="0.3s";
+
+let messageText = document.createElement("div");
+messageText.style.marginBottom="15px";
+
+let closeBtn = document.createElement("div");
+closeBtn.innerHTML="إغلاق";
+closeBtn.style.background="#000";
+closeBtn.style.color="#fff";
+closeBtn.style.padding="8px 15px";
+closeBtn.style.borderRadius="10px";
+closeBtn.style.cursor="pointer";
+closeBtn.style.display="inline-block";
+
+closeBtn.onclick=function(){
+  overlay.style.opacity="0";
+  overlay.style.visibility="hidden";
+  popup.style.transform="scale(0.8)";
+};
+
+popup.appendChild(messageText);
+popup.appendChild(closeBtn);
+overlay.appendChild(popup);
+document.body.appendChild(overlay);
+
+// ===== الرسائل =====
+let messages = [
+"لا تيأس… الله يدبر لك الخير 🤍",
+"رب دعوة غيرت قدرك وأنت لا تعلم ✨",
+"اصبر فالعوض جميل 🌿",
+"كل تأخير فيه حكمة 🕊️"
+];
+
+// ===== ربط زر الرسالة =====
+let buttons = document.querySelectorAll("a");
+buttons.forEach(btn=>{
+  if(btn.innerText.includes("رسالة ملهمة")){
+    btn.onclick=function(e){
+      e.preventDefault();
+      let random = messages[Math.floor(Math.random()*messages.length)];
+      messageText.innerHTML=random;
+      overlay.style.visibility="visible";
 </body>
 </html>
