@@ -2145,61 +2145,6 @@ body{
   font-size:24px;
   margin-bottom:8px;
 }
-</style>
-
-<div id="welcomeBox">مرحبًا بك 🤍</div>
-
-<!-- عبادتك اليومية -->
-<div class="section-title">🕌 عبادتك اليومية</div>
-<div class="icon-grid">
-  <a href="#ward" class="icon-card">
-    <span>🌿</span>
-    ورد يومي
-  </a>
-
-  <a href="#azkar" class="icon-card">
-    <span>📿</span>
-    الأذكار
-  </a>
-
-  <a href="#quran" class="icon-card">
-    <span>📖</span>
-    القرآن
-  </a>
-</div>
-
-<!-- أبواب الخير -->
-<div class="section-title">❤️ أبواب الخير</div>
-<div class="icon-grid">
-  <a href="https://dorar.net/" target="_blank" class="icon-card">
-    <span>📚</span>
-    الدرر السنية
-  </a>
-
-  <a href="https://kafilyatim.dz/" target="_blank" class="icon-card">
-    <span>👶</span>
-    كافل اليتيم
-  </a>
-
-  <a href="https://www.who.int/campaigns/world-blood-donor-day" target="_blank" class="icon-card">
-    <span>🩸</span>
-    التبرع بالدم
-  </a>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  // ===== ترحيب باسم مستخدم تيليغرام =====
-  if(window.Telegram && Telegram.WebApp){
-    Telegram.WebApp.ready();
-    let user = Telegram.WebApp.initDataUnsafe.user;
-    let name = user ? user.first_name : "ضيفنا الكريم";
-    document.getElementById("welcomeBox").innerHTML =
-      "مرحبًا " + name + " 💓<br>نسأل الله أن يجعل زيارتك نورًا وأجرًا";
-  }
-
-});
-</script>
+</
 </body>
 </html>
