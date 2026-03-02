@@ -2228,5 +2228,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 });
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // نبحث عن شبكة الأيقونات
+  var grid = document.querySelector(".grid");
+  if (!grid) return;
+
+  // إنشاء البطاقة
+  var card = document.createElement("div");
+  card.className = "card";
+  card.style.cursor = "pointer";
+
+  card.innerHTML = `
+    <span style="font-size:40px;">👶</span>
+    <p>كافل اليتيم</p>
+  `;
+
+  // عند الضغط يفتح الرابط
+  card.onclick = function () {
+    window.open("https://kafilyatim.dz/", "_blank");
+  };
+
+  // إضافتها داخل الشبكة
+  grid.appendChild(card);
+
+});
+</script>
 </body>
 </html>
